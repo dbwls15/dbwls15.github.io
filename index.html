@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>문서의 제목</title>
+        <link rel="shortcut icon" href="./ico/favicon16.ico">
+        <link rel="shortcut icon" href="./ico/favicon16.png" type="image/x-icon">
+
+        <!-- 일반 앱 형태의 아이콘 설정 -->
+        <link rel="icon" href="./ico/favicon16.png" sizes="16x16">
+        <link rel="icon" href="./ico/favicon32.png" sizes="32x32">
+        <link rel="icon" href="./ico/favicon64.png" sizes="48X48">
+        <link rel="icon" href="./ico/favicon114.png" sizes="64X64">
+        <link rel="icon" href="./ico/favicon256.png" sizes="128X128">
+
+        <!-- 아이폰 고해상도용 파비콘 152x152-->
+        <link rel="apple-toucj-icon-precomposed" href="파일명.png">
+
+        <!-- 인터넷 익스플로러용 타일 아이콘 144x144 -->
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="파일명.png">
+
+        <!-- 모바일 웹앱 문서정보에 대한 설정 -->
+        <mata name="title" content="프론트엔드개발자">
+        <mata name="auther" content="김기태">
+        <mata name="url" content="www.naver.com">
+        <mata name="description" content="프론트엔드개발자의 사이트 개발하기">
+        <mata name="keywords" content="프론트엔드, 개발자, 이야기, html5, css, javascript, jQurey">
+
+        <!-- 애플 어플 문서정보에 대한 설정 -->
+        <mata name="apple-mobile-web-app-title" content="프론트엔드개발자 이야기">
+        <mata name="apple-mobile-web-app-capable" content="yes">
+
+        <!-- 소셜에 문서정보에 대한 설정 -->
+        <mata itemprop="name" content="프론트엔드">
+        <mata itemprop="description" content="프론트엔드개발자의 사이트 개발하기">
+        <mata itemprop="image" content="./ico/favicon256.png">
+
+        <!-- 페이스북에 노출 설정 -->
+        <mata property="fb:app_id" content="APP_ID">
+        
+        <!-- 카카오톡,블로그 등의 크롤링으로 화면 미리보기 노출 -->
+        <mata property="og:type" content="Website">
+        <mata property="og:title" content="프론트엔드개발자 이야기">
+        <mata property="og:url" content="./index.html">
+        <mata property="og:description" content="프론트엔드개발자의 사이트 개발하기">
+        <style>
+        *{margin: 0;padding: 0;}
+        body,html{width: 100%;height: 100%;}
+        ul{list-style: none;}
+        a{text-decoration: none;}
+        label,input,button{outline: 0;border: 0;background-color: transparent;}
+        .hd{width: 100%; height: 100px; position: fixed;top: 0;left: 0;background-color: rgb(75, 114, 187);z-index: 999;}
+        .gnb{}
+        .gnb li{width: 25%;float: left;}
+        .gnb li a{display: block;color: #fff;font-size: 1.2em;text-align: center;line-height: 100px;cursor: pointer;}
+        .wrap{width: 100%;height: 100%;}
+        .page{width: 100%;height: 100%;position: relative; clear: both;}
+        .page_title{line-height: 3;text-align: center;}
+        .lst{clear: both;width: 1280px;margin: 0 auto;padding-top: 60px;}
+        .lst li{float: left;margin-right: 10px;width: 300px;}
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+            <header class="hd">
+                <nav class="gnb">
+                    <ul class="menu">
+                        <li class="item1"><a class="art">About me</a></li>
+                        <!-- 본인소개 : 사진, 이름, 나이, 성격, 자신이 생각하는 디자인 -->
+                        <li class="item2"><a class="art">Working</a></li>
+                        <!-- 기획-> 분석설계-> 디자인-> 구현-> 완료 -->
+                        <li class="item3"><a class="art">Portfolio</a></li>
+                        <!--  -->
+                        <li class="item4"><a class="art">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <!-- div.page#page$*4>h2.page_title{페이지제목}+(ul.lst>li.item$*8>a>img[src="http://placehold.it/300x200/333"]) -->
+            <div class="page" id="page1">
+                <h2 class="page_title">About me</h2>
+                <ul class="lst">
+                    <li class="item1"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item2"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item3"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item4"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item5"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item6"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item7"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item8"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="page" id="page2">
+                <h2 class="page_title">Working</h2>
+                <ul class="lst">
+                    <li class="item1"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item2"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item3"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item4"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item5"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item6"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item7"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item8"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="page" id="page3">
+                <h2 class="page_title">Portfolio</h2>
+                <ul class="lst">
+                    <li class="item1"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item2"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item3"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item4"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item5"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item6"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item7"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item8"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                </ul>
+            </div>
+            <div class="page" id="page4">
+                <h2 class="page_title">Contact</h2>
+                <ul class="lst">
+                    <li class="item1"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item2"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item3"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item4"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item5"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item6"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item7"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                    <li class="item8"><a href=""><img src="http://placehold.it/300x200/333" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </body>
+    </html>
+</head>
+<body>
+    
+</body>
+</html>
