@@ -1,0 +1,383 @@
+내용 건너 뛰기
+왜 GitHub인가? 
+기업
+탐색 
+시장
+가격 
+Search
+
+로그인
+가입
+1,584 35,235 7,134 necolas / normalize.css
+ 코드 문제점 14 당김 요청 12 보안 인사이트   
+오늘 GitHub에 가입하십시오
+GitHub에는 코드를 호스트하고 검토하고, 프로젝트를 관리하고, 소프트웨어를 함께 구축하기 위해 함께 일하는 3 천 6 백만이 넘는 개발자들의 집이 있습니다.
+
+normalize.css /normalize.css
+@necolas necolas 8.0.1
+fc091cc
+on 5 Nov 2018
+@necolas @ 조나단 @battaglr @mattbrundage @ magnificode @hudochenkov @ 존 알빈 @fritx @tjvantoll @tdhooper @ 슬라반가 @rellect @patrickhlauke @ 폴 울드 스 코프 @MoOx @kazssym @jeremenichelli @wilddeer @ 오스틴 위 @gouch @kruczekdawid @ 칼빈 @ 안톤 @ Sky161
+350 라인 (275 sloc)  5.99KB
+    
+/ * ! normalize.css v8.0.1 | MIT 라이센스 | github.com/necolas/normalize.css * /
+
+/ * 문서
+   ======================================================================================================== ============ * /
+
+/ * *
+ * 1. 모든 브라우저에서 라인 높이를 수정하십시오.
+ * 2. iOS에서 방향 변경 후 글꼴 크기 조정을 방지합니다.
+ * /
+
+html {
+  라인 높이 : 1.15 ; / * 1 * /
+  -webkit-text-size-adjust : 100 % ; / * 2 * /
+}
+
+/ * 섹션
+   ======================================================================================================== ============ * /
+
+/ * *
+ * 모든 브라우저에서 여백을 제거하십시오.
+ * /
+
+몸체 {
+  margin : 0 ;
+}
+
+/ * *
+ IE에서`main` 엘리먼트를 꾸준히 렌더링하십시오.
+ * /
+
+메인 {
+  디스플레이 : 블록 ;
+}
+
+/ * *
+ *`h1` 요소의 폰트 크기와 여백을`section`에서 수정하고
+ Chrome, Firefox 및 Safari의 '항목'컨텍스트
+ * /
+
+h1 {
+  font-size : 2 em ;
+  여백 : 0.67 em  0 ;
+}
+
+/ * 내용 그룹화
+   ======================================================================================================== ============ * /
+
+/ * *
+ * 1. Firefox에서 올바른 상자 크기를 추가하십시오.
+ * 2. 가장자리 및 IE에서 오버플로를 표시합니다.
+ * /
+
+hr {
+  상자 크기 : 내용 상자 ; / * 1 * /
+  높이 : 0 ; / * 1 * /
+  오버플로 : 보이는 ; / * 2 * /
+}
+
+/ * *
+ * 1. 모든 브라우저에서 글꼴 크기의 상속과 크기 조정을 수정하십시오.
+ * 2. 모든 브라우저에서 홀수`em` 글꼴 크기를 수정하십시오.
+ * /
+
+프리 {
+  font-family : 고정 폭 글꼴 , 고정 폭 글꼴 ; / * 1 * /
+  글꼴 크기 : 1 em ; / * 2 * /
+}
+
+/ * 텍스트 레벨의 의미
+   ======================================================================================================== ============ * /
+
+/ * *
+ * IE 10의 활성 링크에서 회색 배경을 제거하십시오.
+ * /
+
+a {
+  배경색 : 투명 ;
+}
+
+/ * *
+ * 1. Chrome 57-
+ * 2. Chrome, Edge, IE, Opera 및 Safari에 올바른 텍스트 장식을 추가하십시오.
+ * /
+
+abbr [ 제목 ] {
+  border-bottom : none ; / * 1 * /
+  텍스트 장식 : 밑줄 ; / * 2 * /
+  텍스트 장식 : 밑줄  점선 ; / * 2 * /
+}
+
+/ * *
+ * Chrome, Edge 및 Safari에서 올바른 글꼴 가중치를 추가하십시오.
+ * /
+
+b ,
+강한 {
+  글꼴 - 무게 : 볼더 ;
+}
+
+/ * *
+ * 1. 모든 브라우저에서 글꼴 크기의 상속과 크기 조정을 수정하십시오.
+ * 2. 모든 브라우저에서 홀수`em` 글꼴 크기를 수정하십시오.
+ * /
+
+코드 ,
+kbd ,
+SAMP {
+  font-family : 고정 폭 글꼴 , 고정 폭 글꼴 ; / * 1 * /
+  글꼴 크기 : 1 em ; / * 2 * /
+}
+
+/ * *
+ * 모든 브라우저에서 올바른 글꼴 크기를 추가하십시오.
+ * /
+
+작은 {
+  font-size : 80 % ;
+}
+
+/ * *
+ *`sub`와`sup` 요소가 줄의 높이에 영향을 미치지 않도록합니다.
+ * 모든 브라우저.
+ * /
+
+하위 ,
+sup {
+  글꼴 크기 : 75 % ;
+  line-height : 0 ;
+  위치 : 상대적 ;
+  수직 정렬 : 기준선 ;
+}
+
+서브 {
+  하단 : -0.25 em ;
+}
+
+sup {
+  상단 : -0.5 em ;
+}
+
+/ * 임베디드 컨텐츠
+   ======================================================================================================== ============ * /
+
+/ * *
+ * IE 10의 링크 안의 이미지에서 테두리를 제거하십시오.
+ * /
+
+img {
+  border-style : none ;
+}
+
+/ * 양식
+   ======================================================================================================== ============ * /
+
+/ * *
+ * 1. 모든 브라우저에서 글꼴 스타일을 변경하십시오.
+ * 2. Firefox 및 Safari에서 여백을 제거하십시오.
+ * /
+
+버튼 ,
+입력 ,
+optgroup ,
+선택 ,
+텍스트 영역 {
+  font-family : 상속 ; / * 1 * /
+  글꼴 크기 : 100 % ; / * 1 * /
+  라인 높이 : 1.15 ; / * 1 * /
+  margin : 0 ; / * 2 * /
+}
+
+/ * *
+ * IE에 오버플로를 표시하십시오.
+ * 1. 가장자리에 오버 플로우를 표시하십시오.
+ * /
+
+버튼 ,
+입력 { / * 1 * /
+  오버플로 : 보이는 ;
+}
+
+/ * *
+ Edge, Firefox 및 IE에서 텍스트 변형의 상속을 제거합니다.
+ * 1. Firefox에서 텍스트 변형의 상속을 제거하십시오.
+ * /
+
+버튼 ,
+선택 { / * 1 * /
+  텍스트 변형 : 없음 ;
+}
+
+/ * *
+ * iOS 및 Safari에서 스타일을 클릭 할 수 없음을 수정합니다.
+ * /
+
+버튼 ,
+[ type = " button " ],
+[ type = " reset " ],
+[ type = " submit " ] {
+  -webkit-appearance : 버튼;
+}
+
+/ * *
+ * Firefox에서 안쪽 테두리와 패딩을 제거하십시오.
+ * /
+
+button :: - moz-focus-inner ,
+[ type = " button " ] :: - moz-focus-inner ,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+
+[type="search"] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+
+summary {
+  표시 : 목록 - 항목 ;
+}
+
+/ * 기타
+   ======================================================================================================== ============ * /
+
+/ * *
+ * IE 10 이상에서 올바른 디스플레이를 추가하십시오.
+ * /
+
+템플릿 {
+  표시 : 없음 ;
+}
+
+/ * *
+ * IE 10에서 올바른 디스플레이를 추가하십시오.
+ * /
+
+[ 숨김 ] {
+  표시 : 없음 ;
+}
+© 2019 GitHub , Inc.
+자귀
+은둔
+보안
+지위
+도움
+연락하기 : GitHub
+가격
+API
+훈련
+블로그
+약
