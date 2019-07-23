@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title>반응형1-POLO</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    
+    <style>
+    .collap { position: fixed;top: 0;right: -110%;z-index: 80; transition: 0.5s;}
+    .collap.on { right: 0;}
+    .hd { position: fixed;top: 0;left: 0;z-index: 90;height: 60px;width: 100%; background: rgba(255, 255, 255, 0.671);}
+    .hd.on { }
+    .hd.off { }
+    .logo { display: block;float: left; margin-left: 2em;margin-top: 1.2em;}
+    .logo img { display: block; width: 250px; height: auto;}
+    .gnb { float: right; margin-right: 200px; margin-top: 1em; font-size: 16px;}
+    .gnb li {float: left;}
+    .gnb li a { color: #777; padding-left: 35px; padding-right: 35px; font-weight: bold;}
+    .gnb li:hover a { text-decoration-line: underline; transition: 0.5s; color: #000; font-weight: bold;}
+    .sub li img {display: block; width: 120px; height: 90px;}
+    .sub { display: none;}
+    .lang { width: 100px; height: 26px; position: absolute; top: 28%; right: 95px;z-index: 99; border: 2px solid #666; box-sizing: border-box; padding: 2px 15px;}
+    .lang a span { display: block; position: relative; line-height: 32px; font-size: 13px; color: #666; font-weight: bold; background-image: url(./img/lang.png); background-repeat: no-repeat; background-position: 0 center;
+     padding-right: 16px; padding-left: 24px; margin-top: -8px; margin-left: -7px;}
+     .lang ul { height: 0; overflow: hidden; width: 100px; }
+     .lang:hover ul { height: auto; }
+    /* .lst_btn { width: 26px; height: 26px; position: absolute; top: 7px; right: 30px; background-image: url(./img/list.png); background-repeat: no-repeat;} */
+    .lst_btn { display: block; width: 36px; height: 36px; box-sizing: border-box; /*border: 2px solid #777;*/ position: absolute; right: 1%; top: 0.5em; z-index: 99;cursor: pointer;}
+    .lst_btn span{ display: block; height: 3px; background: #777; position: absolute; right: 0.5em; z-index: 99; transition: 0.4s; transform: rotate(0deg);}
+    .lst_btn .item1 { width: 20px; top: 1em;}
+    .lst_btn .item2 { width: 30px; top: 2em;}
+    .lst_btn:hover .item1 { width: 30px; background: #000;}
+    .lst_btn:hover .item2 { width: 20px; background: #000;}
+    .lst_btn.on .item1 { width: 30px; transform: rotate(45deg); top: 23px;}
+    .lst_btn.on .item2 { width: 30px; transform: rotate(-45deg); top: 23px;}
+    
+    #page1{clear: both; width: 100%; height: 100vh;}
+    #page2 { clear: both; width: 100%; height: 100vh;}
+    .vs {width: 100%; height: 100vh;overflow: hidden; position: relative; clear: both;}
+    .vs_lst { width: 600%; height: 100vh;}
+    .vs_lst li {width: 16.6666666666%; float: left; height: 100vh; background-repeat: no-repeat; background-size: cover;background-position: center center;}
+    .vs_lst li.item1 {background-image: url("./img/visual11.jpg");}
+    .vs_lst li.item2 {background-image: url("./img/visual2.jpg");}
+    .vs_lst li.item3 {background-image: url("./img/visual3.jpg");}
+    .vs_lst li.item4 {background-image: url("./img/visual4.jpg");}
+    .vs_lst li.item5 {background-image: url("./img/visual5.jpg");}
+    .vs_lst li.item6 {background-image: url("./img/visual6.jpg");}
+    .vs_tit { padding-left: 50px; padding-top: 6em;}
+    .vs_com { padding-left: 50px; padding-top: 4em;}
+    .vs_more { padding-left: 60px; padding-top: 2em;}
+    
+    [class*=vs] li.on .vs_tit {padding-top: 6em; opacity: 1;}
+
+    @keyframes arrow_ani {
+        0% {right: 30px;}
+        100% {right:60px;}
+
+    }
+
+    .tit_box {color: #fff;}
+    .tit_box a {color: #fff;}
+    
+    #page3 { width: 100%; height: 100vh;
+     background-position: center center; background-repeat: no-repeat; background-size: cover; background-image: url(./img/RLMAG.jpg); background-attachment: fixed;}
+    #page3 p { color: #fff;}
+    #page4 { clear: both; width: 100%; height: 100vh;}
+    #page4 .item1{background-image: url(./img/thum1.jpg);}
+    #page4 .item2{background-image: url(./img/thum2.jpg);}
+    #page4 .item3{background-image: url(./img/thum3.jpg);}
+    .thum_lst {width: 100%; height: 100%;}
+    .thum_lst li { width: 33.3333%; height: 100%; float: left; background-color: #000; opacity: 0.5; background-repeat: no-repeat; background-position: center center; background-size: cover;  position: relative;}
+    .pic_box { position: absolute; top: 30%; left: 35%; width: 44%; height: 40%;}
+    .pic_box img { display: block; width: 70px; height: 70px; border-radius: 50%; padding: 60px;
+    background-color: rgba(65, 65, 65, 0.5); background-repeat: no-repeat; background-position: center center;}
+    .pic_box h2 { font-weight: bold; font-size: 33px;}
+    .pic_box p { font-weight: bold; font-size: 16px; }
+    #ft { clear: both; width: 100%; height: 100px; background: #666666;}
+    .fnb { background: #999; color: #fff; }
+    .fnb li { float: left; margin-right: 1em; margin-top: 2em;}
+    @media screen and (max-width:767px){
+        /* 모바일 사이즈 */
+        .thum_lst li { width: 100%; height: 33.3333%; float: none; clear: both;}
+    }
+    @media screen and (min-width:768px) and (max-width:1280px) {
+
+    }
+    </style>
+    <script>
+    $(document).ready(function(){
+        var ck = true;
+        $(".lst_btn").click(function(){
+            if(ck){
+                $(".collap").addClass("on");
+                $(".lst_box").addClass("on");
+            } else {
+                $(".collap").removeClass("on");
+                $(".lst_box").removeClass("on");
+            }
+            ck = !ck;
+        });
+
+        $(".collap li").click(function(){
+            $(".collap li").removeClass("on");
+            $("this").addClass("on");
+        });
+
+        // $(window).scroll(function(){
+        //     var sc_top = $(window).scrollTop();
+        //     if(sc_top>=500 && sc_top<1200){
+        //         $(".hd").addClass("on");
+        //         $(".hd").removeClass("off");
+        //     } else if(sc_top>=1200){
+        //         $(".hd").removeClass("on");
+        //         $(".hd").addClass("off");
+        //     } else{
+        //         $(".hd").removeClass("on");
+        //         $(".hd").removeClass("off");
+        //     }
+        // });
+        
+        // var intv = setInterval(function(){next_ani();},5000);
+        // function next_ani(){
+        //     $(".vs_lst").animate({"margin-left":"-100vw"},function(){
+        //         $(".vs_lst li").eq(0).appendTo($(".vs_lst"));
+        //         $(".vs_lst").css("margin-left","0px");
+        //     });
+        // }
+        // function prev_ani(){
+        //     $(".vs_lst li").eq(3).prependTo($(".vs_lst"));
+        //     $('.vs_lst').css("margin-left","-100vw");
+        //     $(".vs_lst").animate({"margin-left":"0px"},function(){
+        //     });
+        // }
+
+        // 첫 번째 슬라이더
+        $(".btn")
+    });
+    </script>
+    <script>
+    $(document).ready(function(){
+        var wh = $(window).height();
+        $(".page").each(function(index){
+            $(this).attr("data-val", index*wh);
+        });
+        $(".page").on("mousewheel DOMMouseScroll", function(e){
+            var secPos = parseInt($(this).attr("data-val"));
+            if(e.originalEvent.wheelDelta >= 0){
+                $("html, body").stop().animate({scrollTop:secPos - wh});
+                return false;
+            } else if(e.originalEvent.wheelDelta < 0){
+                $("html,body").stop().animate({scrollTop:secPos + wh});
+                return false;
+            }
+        });
+    });
+    </script>
+</head>
+<body>
+    <nav class="collap">
+        <ul class="menu">
+            <li>
+                <a class="dp1">RL50</a>
+         <ul class="dp2">
+             <li><a href=""><img src="./img/rl.jpg" alt="">RL50</a></li>
+             <li><a href=""><img src="./img/thum1.jpg" alt="">RL50 RUNWAY</a></li>
+         </ul>
+         </li>
+            <li>
+                <a class="dp1">남성</a>
+                <ul class="dp2">
+                    <li><a href=""><img src="./img/pp.jpg" alt="">PUPLE LABEL</a></li>
+                    <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
+                    <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                </ul>
+             </li>
+            <li>
+                <a class="dp1">여성</a>
+                <ul class="dp2">
+                    <li><a href=""><img src="" alt="">RALPH LAUREN COLLECTION</a></li>
+                    <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
+                    <li><a href=""><img src="" alt="">LAUREN</a></li>
+                    <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                </ul>
+             </li>
+            <li>
+                <a class="dp1">아동</a>
+                <ul class="dp2">
+                    <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
+                    <li><a href=""><img src="" alt="">RALPH LAUREN BABY</a></li>
+                </ul>
+             </li>
+            <li>
+                <a class="dp1">WORLD OF RALPH LAUREN</a>
+                <ul class="dp2">
+                    <li><a href=""><img src="" alt="">브랜드 스토리</a></li>
+                    <li><a href=""><img src="" alt="">플래그쉽 스토어</a></li>
+                    <li><a href=""><img src="" alt="">레스토랑</a></li>
+                    <li><a href=""><img src="" alt="">RL STYLE</a></li>
+                </ul>
+             </li>
+            <li>
+                <a class="dp1">공식 온라인 스토어</a>
+             </li>
+        </ul>
+    </nav> 
+       <header class="hd">
+           <a href="" class="logo"><img src="./img/logo.png" alt=""></a>
+           <nav class="collap">
+                <ul class="menu">
+                    <li>
+                        <a class="dp1">RL50</a>
+                 <ul class="dp2">
+                     <li><a href=""><img src="./img/rl.jpg" alt="">RL50</a></li>
+                     <li><a href=""><img src="./img/thum1.jpg" alt="">RL50 RUNWAY</a></li>
+                 </ul>
+                 </li>
+                    <li>
+                        <a class="dp1">남성</a>
+                        <ul class="dp2">
+                            <li><a href=""><img src="./img/pp.jpg" alt="">PUPLE LABEL</a></li>
+                            <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
+                            <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                        </ul>
+                     </li>
+                    <li>
+                        <a class="dp1">여성</a>
+                        <ul class="dp2">
+                            <li><a href=""><img src="" alt="">RALPH LAUREN COLLECTION</a></li>
+                            <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
+                            <li><a href=""><img src="" alt="">LAUREN</a></li>
+                            <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                        </ul>
+                     </li>
+                    <li>
+                        <a class="dp1">아동</a>
+                        <ul class="dp2">
+                            <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
+                            <li><a href=""><img src="" alt="">RALPH LAUREN BABY</a></li>
+                        </ul>
+                     </li>
+                    <li>
+                        <a class="dp1">WORLD OF RALPH LAUREN</a>
+                        <ul class="dp2">
+                            <li><a href=""><img src="" alt="">브랜드 스토리</a></li>
+                            <li><a href=""><img src="" alt="">플래그쉽 스토어</a></li>
+                            <li><a href=""><img src="" alt="">레스토랑</a></li>
+                            <li><a href=""><img src="" alt="">RL STYLE</a></li>
+                        </ul>
+                     </li>
+                    <li>
+                        <a class="dp1">공식 온라인 스토어</a>
+                     </li>
+                </ul>
+            </nav> 
+    
+        <div class="lang">
+            <button class="this-lang">언어</button>
+            <ul class="lang_list">
+                <li class="item1"><a href="">한국어</a></li>
+                <li class="item2"><a href="">English</a></li>
+            </ul>
+        </div>
+           <div class="lst_btn">
+                <span class="line item1"></span>
+                <span class="line item2"></span>
+           </div>
+       </header>
+       <div class="page" id="page1">
+           <video src="./img/vdo.mp4" width="100vw" height="100vh" autoplay></video>
+       </div>
+       <div class="page" id="page2">
+           <figure class="vs">
+               <ul class="vs_lst">
+                   <li class="item1 on">
+                       <div class="tit_box">
+                        <h2 class="vs_tit">POLO RALPH LAUREN</h2>
+                        <p class="vs_com">50년 전통의 미국 대표 브랜드</p>
+                        <a href="" class="vs_more">지금 둘러보기</a>
+                        </div>
+                   </li>
+                   <li class="item2">
+                        <h2 class="vs_tit">POLO RALPH LAUREN</h2>
+                        <p class="vs_com">폴로</p>
+                        <a href="" class="vs_more">지금 둘러보기</a>
+                    </li>
+                   <li class="item3">
+                        <h2 class="vs_tit">POLO RALPH LAUREN</h2>
+                        <p class="vs_com">더 얼쓰 폴로. 대자인의 의미를 담은 디자인</p>
+                        <a href="" class="vs_more">지금 둘러보기</a>
+                    </li>
+                   <li class="item4">
+                        <h2 class="vs_tit">POLO RALPH LAUREN</h2>
+                        <p class="vs_com">키즈</p>
+                        <a href="" class="vs_more">지금 둘러보기</a>
+                   </li>
+                   <li class="item5">
+                        <h2 class="vs_tit">POLO RALPH LAUREN</h2>
+                        <p class="vs_com">더 얼쓰 폴로. 대자인의 의미를 담은 디자인</p>
+                        <a href="" class="vs_more">지금 둘러보기</a>
+                   </li>
+                   <li class="item6">
+                        <h2 class="vs_tit">POLO RALPH LAUREN</h2>
+                        <p class="vs_com">폴로 스포츠</p>
+                        <a href="" class="vs_more">지금 둘러보기</a>
+                   </li>
+               </ul>
+               <ul class="btnbox1">
+                   <li class="item1 on"><button class="btn"></button></li>
+                   <li class="item2"><button class="btn"></button></li>
+                   <li class="item3"><button class="btn"></button></li>
+                   <li class="item4"><button class="btn"></button></li>
+                   <li class="item5"><button class="btn"></button></li>
+                   <li class="item6"><button class="btn"></button></li>
+               </ul>
+           </figure>
+           
+       </div>
+       <div class="page" id="page3">
+           <p>트렌드, 팁, 장인정신의 표상</p>
+       </div>
+
+       <div class="page" id="page4">
+           <ul class="thum_lst">
+               <li class="item1">
+                   <a href="">
+                       <div class="pic_box">
+                            <img src="./img/brandstory.png" alt="">
+                           <h2>브랜드 스토리</h2>
+                           <p>변화를 디자인 하다</p>
+                       </div>
+                   </a>
+               </li>
+               <li class="item2">
+                   <a href="">
+                       <div class="pic_box">
+                            <img src="./img/palace.png" alt="">
+                           <h2>플래그쉽 스토어</h2>
+                           <p>아름다움을 짓다</p>
+                       </div>
+                   </a>
+               </li>
+               <li class="item3">
+                   <a href="">
+                       <div class="pic_box">
+                            <img src="./img/cloth.png" alt="">
+                           <h2>RL style</h2>
+                           <p>collection 둘러보기</p>
+                       </div>
+                   </a>
+               </li>
+           </ul>
+       </div>
+       <footer id="ft" class="page">
+           <nav class="fnb">
+               <ul>
+                   <li><a href="">개인정보 취급방침</a></li>
+                   <li><a href="">사용 약관</a></li>
+                   <li>Copyright 2008-2019 Ralph Lauren</li>
+                   <li><a href="">About Ralph Lauren</a></li>
+                   <li><a href="">채용 정보</a></li>
+                   <li><a href="">고객지원부</a></li>
+               </ul>
+           </nav>
+       </footer>
+</body>
+</html>
