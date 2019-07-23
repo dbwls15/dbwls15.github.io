@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>카카오페이</title>
+    <meta name="title" content="kakao pay">
+    <meta name="author" content="yujin">
+    <meta name="keyword" content="kakao pay, pay, money, QR">
+    <meta name="copyright" content="">
+    <!-- 기본 셋팅시 모바일 메신저로 넘기기 위한 셋팅 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="kakao pay">
+    <meta property="og:image" content="https://www.kakaopay.com">
+    <meta property="og:description" content="">
+    <link rel="stylesheet" href="./css/common.css">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+    .main { clear: both; position: relative;}
+    #main1 { width: 100vw; height: 100vh; margin-top: 100px;}
+    #main2 { width: 100vw; height: 100vh; }
+    #main3 { width: 100vw; height: 100vh;}
+    #main4 { width: 100vw; height: 100vh;  background: url("./img/vs2.png") no-repeat center center ;background-size: cover;}
+    .hd { width: 100%; height: 100px; padding: 0 80px; box-sizing: border-box; position: fixed; top: 0; left: 0; z-index: 5; background: rgba(255,255,255,0.7);}
+    .logo { float: left;}
+    .logo img { padding: 33px 0px;}
+    .gnb { float: right; }
+    .gnb li {  position: relative; float: left; line-height: 100px;}
+    .gnb li a { display: block; font-size: 18px; padding: 0 30px; color: #333;}
+    .dp1 { font-weight: bold; }
+    .dp1:hover { background: url(./img/bg.png);}
+    .slash:after { background: url("./img/gnb_line.png") no-repeat 0 50% ; position: absolute; top: 0; left: 0;
+     width: 11px; height: 100%; content: ""; }
+    .dp2 {display: none; visibility: visible; opacity: 1; transition: 0.5s; position: absolute; width: 100%; height: auto; background: #333; z-index: 5;}
+    .gnb li:hover .dp2 {display: block;}
+    .dp2 li { float: none; line-height: 32px;}
+    .dp2 li a { display: block; font-size: 15px; color: #fff; padding: 0 0 0 30px;}
+    .lang { float: right;}
+    .lang li { float: left; width: 40px; height: 40px; line-height: 40px; border-radius: 20px; font-weight: bold; background: #e4e4e4; text-align: center; margin: 30px 5px;}
+    .lang li.on { color: #fff; background: #01002c;}
+    .vdo { clear: both; width: 100%; height: auto;}
+    .vdo div {width: 31%; float: left; box-sizing: border-box; position: relative; margin: 0 1%;}
+    video {width: 80%; height: 80%; margin: 0 auto; margin-left: 55px; box-sizing: border-box; position: relative;}
+    /* #txt_box {width: auto; height: auto; padding-left: 20px; float: left; box-sizing: border-box; margin-left: 115px;} */
+    #txt_box {position: absolute; top: 100%; left: calc(50% - 120px);z-index: 1; width: 240px;}
+    #txt_box .tit { font-size: 30px; font-weight: bold; margin-bottom: 30px; margin-top: 20px;}
+    #txt_box .com { font-size: 18px;margin-bottom: 15px;}
+    #txt_box .more { display: block; width: 97px; height: 27px; background: url("./img/more.png") no-repeat; float: right;}
+    
+    article {display: block;}
+    .inner { width: 100%; height: 100%; vertical-align: middle;}
+    .ban1 img { display: block; width: 100%;}
+    
+    #vs {width: 100vw; height: 100vh; position: relative; clear: both;}
+    .vs_lst { width: 200%; height: 100vh;}
+    .vs_lst li { width: 50%; float: left; height: 100vh;}
+    .vs_lst .txt_box2 {position: absolute; left: 0; top: 50%; width: 100%; margin-top: -120px; }
+    .txt1 { display: block; font-size: 52px; font-weight: 600; margin-bottom: 25px; letter-spacing:-0.25px; color:#fff;}
+    .txt2 { font-size: 22px; margin-bottom: 25px; font-weight: 300; letter-spacing:-0.65px; color:#fff;}
+    .left { float: left; width: 48%; max-width: 762px; }
+    .left img {width: 100%;}
+    .right { float: right; width: 48%; max-width: 762px;}
+    .right strong {color: #b8b8b8; font-size: 18px; font-weight: 600; letter-spacing: 2.5px; }
+    .right h3 {color: #000; font-size: 36px; letter-spacing: -2.65px; line-height: 40px; font-weight: 300; padding: 5% 0 3%;}
+    .right b {font-weight: 500;}
+    .right p {color: #6b6b6b; font-size: 20px;line-height: 32px;letter-spacing: -2px; font-weight: 300; padding-bottom: 8%; word-break: keep-all;}
+    .right a { display: block; position: relative; color: #3e3e3e; font-size: 14px; font-weight: 600; letter-spacing: 2.5px;}
+    .right a:before { position: absolute; right: 107%; content: ""; top: 7px; width: 125px;height: 2px;background-color: #000;}
+    .right a:hover { color: #e5624d; text-indent: 2%;}
+    .right a:hover:before { background-color: #e5624d; right: 102%;}
+@media all and (max-width:1600px){
+	.right{width:47%; padding-left:3%; padding-top:5%;}
+	.right p br{display:none;}
+}
+@media all and (max-width:1220px){
+	.right{padding-top:2%;}
+	.right strong{font-size:14px}
+	.right h3{font-size:25px; line-height:30px;}
+	.right p{font-size:14px; line-height:24px; padding-bottom:3%; }
+}
+@media all and (max-width:800px){
+	/* #mainTopBanner{position:relative; z-index:11;padding-top:25px; padding-bottom:15px} */
+	.left{float:none;}
+	.right{float:none; width:100%; padding-left:0; padding-top:3%;}
+	.right .txt1{position:absolute; top:3%; right:15px; width:43%; padding-left:2%}
+	.right strong{font-size:10px}
+	.right h3{font-size:16px; line-height:22px;}
+	.right .txt2{float:none;}
+	.right p{font-size:13px; line-height:18px;}
+	.right a{font-size:10px; padding-left:80px;}
+	.right a:before{right:auto; top:4px;left:0; width:70px;}
+}
+#ban2{ clear: both; padding:28px 0 0 0;}
+.ban_lst{overflow:hidden; margin:0 -2%;}
+.ban_lst li{float:left; max-width:762px; width:46%; margin:0 2%;}
+.ban_lst li a{display:block; position:relative; height:0; padding-top:50%; background-color:#111;}
+.ban_lst li img{position:absolute; top:0px; left:0px; width:100%; height:100%; background: rgba(0, 0, 0, 1);}
+.ban_lst li .ban_in{position:absolute; top:50%; left:0px; width:100%; font-size:16px; margin-top:-55px; letter-spacing:-0.55px; color:#fff; text-align:center;}
+.ban_lst li .ban_in .ban_txt3{height:60px; font-size:60px; font-weight:600; padding-bottom:30px; letter-spacing:15px;}
+.ban_lst li:first-child .ban_in .ban_txt3{font-size:60px; letter-spacing:15px;}
+.ban_lst li .ban_in .ban_txt4{display:block; font-weight:300; font-size:20px;}
+@media all and (max-width:1220px){
+	#ban2{padding:40px 0 0 0;}
+	.ban_lst li .ban_in .ban_txt3{height:30px; font-size:34px; padding-bottom:15px; letter-spacing:15px;}
+	.ban_lst li:first-child .ban_in .ban_txt3{font-size:42px;}
+	.ban_lst li .ban_in .ban_txt4{font-size:15px;}
+}
+@media all and (max-width:800px){
+	.ban_lst{margin:0;}
+	.ban_lst li{float:none; width:100%; margin:0; margin-bottom:23px;}
+}
+@media all and (max-width:640px){
+	#ban2{padding:17px 0}
+	.ban_lst li .ban_in{margin-top:-28px}
+	.ban_lst li .ban_in .ban_txt3{font-size:30px; letter-spacing:15px; }
+	.ban_lst li:first-child .ban_in .ban_txt3{font-size:30px; text-indent:14px}
+	.ban_lst li .ban_in .ban_txt4{font-size:12px;}
+}
+#main4 { background-size: cover !important;}
+#main4 .arrow {position: absolute; top: 100px; left: 50%; content: ""; width: 34px; height: 135px;
+ background: url(./img/arrow.png) no-repeat;}
+ .fix_box { position: relative; height: 430px; text-align: center; font-size: 13px; letter-spacing: -0.55px; padding-top: 300px;}
+ .fix_tit {color: #fff; font-size: 36px; font-weight: 300; letter-spacing: 1px; padding-bottom: 1em;  }
+ .fix_tit .company { font-weight: bold;}
+ .fix_more {display: block; width: 216px; height: 56px; line-height: 56px; color: #fff; letter-spacing: 2px; font-size: 14px; font-weight: 600; margin: 0 auto; border: 1px solid #fff;}
+.fix_more:hover { background-color: #fff; color: #333;}
+    </style>
+    <script>
+    $(document).ready(function(){
+       //패럴럭스 스크롤링
+       var wh = $(window).height();
+        var wd = $(window).width();
+        $(".sc_data").each(function(index){
+            $(this).attr("data-val", index*wh);
+        });
+        $(".sc_data").on("mousewheel DOMMouseScroll", function(e){
+            var secPos = parseInt($(this).attr("data-val"));
+            if(e.originalEvent.wheelDelta >= 0){
+                $("html, body").stop().animate({scrollTop:secPos - wh});
+                return false;
+            } else if(e.originalEvent.wheelDelta < 0) {
+                $("html, body").stop().animate({scrollTop:secPos + wh});
+                return false;
+            }
+        });
+
+    //     //크기가 맞지 않는 경우 자동 계산         
+    //    $(window).resize(function(){
+    //        ht_size();   
+    //    }).resize();
+    //    function ht_size(){
+    //       var ht = $("#main1").height() + $("#main2").height() + $("#main3").height() + $("#main4").height() + $(".ft").height() + 50;
+    //        console.log(ht);
+    //        $("body").height(ht).css("overflow", "hidden");
+    //    };
+    });
+    </script>
+</head>
+<body>
+    <div class="main sc_data" id="main1">
+        <header class="hd">
+            <a href="" class="logo"><img src="./img/logo.png" alt="로고"></a>
+            <ul class="lang">
+                <li class="on"><a href="">KR</a></li>
+                <li><a href="">EN</a></li>
+                <li><a href="">JP</a></li>
+                <li><a href="">CH</a></li>
+            </ul>
+            <nav class="gnb">
+                <ul class="menu">
+                    <li>
+                        <a href="" class="dp1">이야기하다</a>
+                        <ul class="dp2">
+                            <li><a href="">사용자제안</a></li>
+                            <li><a href="">고객센터</a></li>
+                            <li><a href="">QR KIT신청</a></li>
+                            <li><a href="">제휴문의</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="dp1 slash">금융하다</a>
+                        <ul class="dp2">
+                            <li><a href="">브랜드</a></li>
+                            <li><a href="">서비스</a></li>
+                            <li><a href="">안심프로젝트</a></li>
+                            <li><a href="">공지사항</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="dp1 slash">함께하다</a>
+                        <ul class="dp2">
+                            <li><a href="">사용자후기</a></li>
+                            <li><a href="">채용</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <section class="vdo">
+        <div id="vdo1">
+        <video src="./img/video_payment.mp4" playsinline autoplay loop></video>
+        <div id="txt_box">
+            <h2 class="tit">필요할 때 언제든<br>마음 놓고 산다</h2>
+            <p class="com">카드나 현금이 없어도 OK!</p>
+            <a href="" class="more"></a>
+        </div>     
+        </div>
+        <div id="vdo2">
+            <video src="./img/video_remittance.mp4" playsinline autoplay loop></video>
+            <div id="txt_box">
+            <h2 class="tit">톡하면서<br>마음 놓고 전한다</h2>
+            <p class="com">송금은 10초 컷!</p>
+            <a href="" class="more"></a>
+        </div>   
+        </div>
+        <div id="vdo3">
+            <video src="./img/video_membership.mp4" playsinline autoplay loop></video>
+            <div id="txt_box">
+            <h2 class="tit">하나로 찍고<br>마음놓고 쌓는다</h2>
+            <p class="com">결제할때마다 적립!</p>
+            <a href="" class="more"></a>
+        </div>   
+        </div>
+        </section>   
+    </div>
+    <div class="main sc_data" id="main2">
+        <figure id="vs">
+            <ul class="vs_lst">
+                <li>
+                    <img src="./img/vs1.jpg" alt="">
+                        <div class="txt_box2">
+                            <strong class="txt1">마음 놓고 금융하다 카카오페이</strong>
+                            <p class="txt2">안심하고 사용할 수 있어 믿을 수 있는 생활금융 서비스를 만듭니다.</p>
+                        </div>
+                </li>
+                <li>
+                    <img src="./img/vs2.png" alt="">
+                        <div class="txt_box2">
+                            <strong class="txt1">금융의 수고로움을 줄이고 이로움을 키우다</strong>
+                            <p class="txt2">언제 어디서나,누구나 일상 속에서 가치 있는 흐름을 만듭니다.</p>
+                        </div>
+                </li>
+            </ul>
+        </figure>
+    </div>
+    <div class="main sc_data" id="main3">
+        <div class="inner">
+        <!-- ****************** 메인컨텐츠 (상단배너) ********************** -->
+            <article id="ban1">
+                <div class="ban_box">
+                    <div class="left">
+                        <img src="./img/ban1.png" alt="" />
+                    </div>
+                    <div class="right">
+                        <div class="ban_txt1">
+                            <strong>NEW VALUE</strong>
+                            <h3>새로운 금융<b>effortless</b>를<br>지향하는 생활금융 플랫폼입니다</h3>
+                        </div>
+                        <div class="ban_txt2">  
+                            <p>카카오페이로<b>생활 속 금융을 한눈에</b>볼 수 있도록 합니다.</p>
+                            <a href="">READ MORE</a>
+                        </div>
+                    </div>
+                    </div>
+                </article>
+                <!-- ****************** 메인컨텐츠 (사각배너들) ********************** -->
+                <article id="ban2">
+                    <div class="ban_box">
+                        <ul class="ban_lst">
+                            <li>
+                                <a href="">
+                                    <img src="./img/ban3.png" alt="" />
+                                    <div class="ban_in">
+                                        <p class="ban_txt3">BRAND</p>
+                                        <strong class="ban_txt4">카카오페이를 소개합니다</strong>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    <img src="./img/ban2.png" alt="" />
+                                    <div class="ban_in">
+                                        <p class="ban_txt3">SUGGESTION</p>
+                                        <strong class="ban_txt4">마음 놓고 제안해주세요</strong>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </article>
+        </div>
+    </div>
+    <div class="main sc_data" id="main4" style="background: url(./img/last.png) no-repeat">
+        <span class="arrow"></span>
+        <div class="fix_box">
+        <h3 class="fix_tit">세상을 놀라게 할 <span class="company">KAKAO PAY</span >를 꿈꿔보세요</h3>
+        <a href="" class="fix_more">READ MORE</a>
+    </div>
+    </div>
+</body>
+</html>

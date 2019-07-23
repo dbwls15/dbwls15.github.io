@@ -1,0 +1,12 @@
+@charset "utf-8";
+* { margin: 0; padding: 0; }
+body, html { width: 100%; height:auto;  overflow-y:auto; font-family: 'Nanum Square'; 
+font-size:14px; -ms-overflow-style:none;  }
+::-webkit-scrollbar { display:none; }
+
+ul { list-style: none; }
+a { text-decoration:none; color: inherit;}
+button, input, a, img { outline:0; border:0; background-image:none;
+background-color:transparent; }
+
+.main { position:relative; width: 90%; margin:0 auto; height:100vh; overflow-x:hidden; }
