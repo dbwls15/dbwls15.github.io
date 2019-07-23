@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SK 7mobile</title>
+    <style>
+    *{margin: 0; padding: 0;}
+    body, html { width: 100%; height: 100%; font-family: SamsungSharpsans, SamsungOne;}
+    ul { list-style: none;}
+    a { text-decoration: none; color: inherit;}
+    /* 컨테이너 영역의 단 설정 */
+    #container { zoom: 1; padding-left: 280px;} /* #container에 절대 폭 지정 안함 */
+    #container:after { content: ""; display: block; clear: both;}
+    #aside { width: 280px; position: fixed; top: 0; left: 0; z-index: 99; background: #111; }
+    #content { float: left; width: 100%; }
+    .hd_wrap { padding: 50px 0 0 35px; box-sizing: border-box;}
+    .logo { display: block; margin-bottom: 40px;}
+    .gnb { width: 190px;}
+    .gnb > li {margin-bottom: 30px;}
+    .gnb li a { display: block; font-size: 18px; color: #fff;}
+    .dp1 { margin-bottom: 10px; font-weight: bold;}
+    .dp1:before { content: "| ";}
+    .dp2 { text-indent: 0.5em;}
+    .dp2 li { margin-top: 7px;}
+    .dp2 li a {display: block; font-size: 16px; color: #eee;}
+    #search { margin-bottom: 20px; width: 190px; height: 27px;}
+    #searchText { font-size: 12px; width: 160px; height: 25px; }
+    #searchBtn {width: 16px; height: 17px; background-image: url("./img/search.png"); background-repeat: no-repeat;}
+    .tag { width: 190px; display: block;}
+    .tag li { float: left; padding: 0 7px 7px 1px; box-sizing: border-box;}
+    .tag li a { display: block; font-size: 12px; border-radius: 3px; padding: 3px 6px; color: #111; background: #ededed;}
+    /* #aside:after { content: ""; clear: both; display: block;} */
+    #vs { clear: both; width: 100%; height: 649px; position: relative;}
+    .vs_lst { width: 100%; height: 649px;}
+    .vs_lst li { width: 100%; height: 649px; position: relative;}
+    .vs_lst li.it1 { background: url("./img/img11.jpg") no-repeat;}
+    .vs_lst li.it2 { background: url("./img/img14.jpg") no-repeat;}
+    .vs_lst li.it3 { background: url("./img/img11.jpg") no-repeat; background-size: cover;}
+    .vs_lst li.it4 { background: url("./img/img14.jpg") no-repeat;}
+    .txt_box { position: absolute; top: 38%; left: 6.5%;}
+    .txt_box .tit { color: #fff; font-size: 29px;}
+    .txt_box .com { color: #fff; font-size: 47px; padding: 10px 0 30px 0;}
+    .txt_box .more { color: #fff;font-size: 23px; line-height: 3px;}
+    .ft { position: fixed; width: 100%; height: 60px; left: 0; bottom: 0; z-index: 100; padding: 15px 30px; box-sizing: border-box; border-top: 1px solid #bbb; background: #fff;}
+    .f_logo { display: block; float: left;}
+    .f_logo img { display: block; width: 68px; height: 34px; margin-bottom: 20px;}
+    .fnb { float: left; margin-left: 30px;}
+    .fnb li { float: left; padding: 4px 7px 3px 2px; position: relative;}
+    .fnb li a { display: block; font-size: 12px; padding-left: 25px;}
+    .fnb li a:before { width: 20px; height: 19px; background: url("./img/icon.png") no-repeat ; content: ""; position: absolute; top: 4px; left: 6px;}
+    .fnb li.it1 a:before { background-position: -300px -120px;}
+    .fnb li.it2 a:before { background-position: -340px -120px;}
+    .fnb li.it3 a:before { background-position: -380px -120px;}
+    .fnb li.it4 a:before { background-position: -410px -120px;}
+    .fnb li.it5 a:before { background-position: -440px -120px;}
+    
+    .info { float: right; margin-bottom: 9px;}
+    .info h3 { font-size: 12px;}
+    .info li { float: left;}
+    .info li span{font-size: 12px; color: #b2b2b2;}
+    .info li {}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="aside">
+           <div class="hd_wrap">
+               <a href="" class="logo"><img src="./img/h_logo.png" alt="로고"></a>
+               <ul class="gnb">
+                   <li>
+                       <a href="" class="dp1">다이렉트샵</a>
+                       <ul class="dp2">
+                           <li><a href="">바른폰</a></li>
+                           <li><a href="">휴대폰</a></li>
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="" class="dp1">요금제·서비스</a>
+                       <ul class="dp2">
+                           <li><a href="">요금제</a></li>
+                           <li><a href="">부가서비스</a></li>
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="" class="dp1">이벤트·혜택</a>
+                       <ul class="dp2">
+                           <li><a href="">이벤트</a></li>
+                           <li><a href="">SK 7mobile혜택</a></li>
+                           <li><a href="">할인프로그램</a></li>
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="" class="dp1">나의 서비스</a>
+                       <ul class="dp2">
+                           <li><a href="">요금/납부관리</a></li>
+                           <li><a href="">사용량조회</a></li>
+                           <li><a href="">이용중 서비스 조회/변경</a></li>
+                       </ul>
+                   </li>
+                   <li>
+                       <a href="" class="dp1">선불서비스</a>
+                   </li>
+               </ul>
+           <form action="" name="search" id="search">
+               <input type="text" name="searchText" id="searchText" title="검색어 입력" placeholder="검색어를 입력하세요">
+               <a href="" id="searchBtn"><span></span></a>
+           </form>
+           <ul class="tag">
+                <li><a href="">#삼성</a></li>
+                <li><a href="">#LG</a></li>
+                <li><a href="">#애플</a></li>
+                <li><a href="">#갤럭시 S10</a></li>
+                <li><a href="">#LG V50 ThinQ</a></li>
+                <li><a href="">#아이폰XS</a></li>
+                <li><a href="">#5G</a></li>
+                <li><a href="">#무제한</a></li>
+            </ul>
+           
+            </div>
+        </div>
+        <div id="content">
+            <figure id="vs">
+                <ul class="vs_lst">
+                    <li class="it1">
+                        <a href="">
+                        <div class="txt_box">
+                            <h3 class="tit">인기에 힘입어 한번 더~</h3>
+                            <p class="com">데이터/음성 무제한<br>월 36,300원</p>
+                            <a href="" class="more">자세히보기</a>
+                        </div>
+                    </a></li>
+                    <li class="it2">
+                        <div class="txt_box">
+                            <h3 class="tit">새폰이 아니어도<br>아이폰은 갖고싶으니까</h3>
+                            <p class="com">특S급 0원부터</p>
+                            <a href="" class="more">자세히보기</a>
+                        </div>
+                    </li>
+                    <li class="it3">
+                        <div class="txt_box">
+                            <h3 class="tit">7월은 7moblie의 달! 1탄</h3>
+                            <p class="com">V9 VITE 공기계<br>77대 한정판매!</p>
+                            <a href="" class="more">자세히보기</a>
+                        </div>
+                    </li>
+                    <li class="it4">
+                        <div class="txt_box">
+                            <h3 class="tit">7월은 7moblie의 달! 2탄</h3>
+                            <p class="com">줄어든 통신비 들고<br>떠나요~ 제주로</p>
+                            <a href="" class="more">자세히보기</a>
+                        </div>
+                    </li>
+                </ul>
+            </figure>
+        </div>
+
+        <footer class="ft">
+            <a href="" class="f_logo"><img src="./img/ft_logo2.png" alt=""></a>
+            <ul class="fnb">
+                <li class="it1"><a href="">고객센터 안내</a></li>
+                <li class="it2"><a href="">자주하는 질문</a></li>
+                <li class="it3"><a href="">1:1고객상담</a></li>
+                <li class="it4"><a href="">서식다운로드</a></li>
+                <li class="it5"><a href="">오프라인매장안내</a></li>
+            </ul>
+            <ul class="info">
+                <h3>고객상담</h3>
+                <li class="tel"><span>T.114(무료)</span></li>
+                <li class="tel"><span>T.1599-0999(유료)</span></li>
+                <li class="tel"><span>T.080-899-0999(무료)</span></li>
+                <li class="time"><span>평일 09:00~18:00(주말/공휴일휴무)</span></li>
+            </ul>
+        </footer>
+    </div>
+</body>
+</html>
