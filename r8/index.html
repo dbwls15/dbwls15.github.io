@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="imagetoolbar" content="no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+    <title>타무호텔-flex방식</title>
+    <!-- 메타 정보 -->
+    <meta name="title" content="TAMU">
+    <meta name="description" content="TAMU, HOTEL, GEUST HOUSE">
+    <meta name="keywords" content="TAMU, HOTEL, GEUST HOUSE">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <style>
+    *{ margin: 0; padding: 0; }
+    body, html { width: 100%; height: 100%; -ms-overflow-style: none; }
+    ul { list-style: none; }
+    a { text-decoration: none; }
+    input, button, label { background-color: transparent; background: none; border: 0; outline: 0; }
+    .wrap { display: flex; flex-flow: row wrap; font-weight: 400; text-align: center; width: 100%; height: 100%; background: rgba(0,0,0,0.8);}
+    .wrap > * { padding: 10px; flex: 1 100%; }
+    #hd { background: transparent;}
+    .logo { justify-content: flex-start;}
+    .menu {margin: 0; background: transparent; display: -webkit-flex; display: flex; -webkit-flex-flow:row wrap;
+     flex-flow: row wrap; justify-content: flex-end;}
+    .menu a {display: block; padding: 1em; color: #666;}
+    .dp2 { display: none; visibility: visible; }
+    .dp2.on { display: block;}
+    /* .page { background-size: contain; background-repeat: no-repeat; background-position: center center;} */
+    .page_wrap { width: 80%; margin: 0 auto;}
+    .main { position: relative; background: url("./img/img1.jpg"); background-size: cover; background-repeat: no-repeat; background-position: center center;}
+    
+    .aside1 { position: relative; background: url("./img/img2.jpg") ; background-size: cover; background-repeat: no-repeat; background-position: center center;}
+    .aside2 { position: relative; background: url("./img/img3.jpg") ; background-size: cover; background-repeat: no-repeat; background-position: center center;}
+    .tit { font-size: 48px; color: #fff; padding-bottom: 20px;padding-top: 110px;}
+    .more { font-size: 16px; text-decoration: underline; color:rebeccapurple;}
+    
+    
+
+    @media screen and (max-width:767px){
+        .menu { -webkit-flex-flow:column wrap; flex-flow: column wrap;}
+        .menu a { text-align: center; padding: 10px;border-top: 1px solid rgba(255, 255, 255, 0.3); border-bottom: 1px solid rgba(255, 255, 255, 0.3);}
+        /* .aside1 { height: 100vh;}
+        .aside2 { height: 100vh;} */
+        .ft{height: 120px;}
+        .main { background-size: cover;}
+        .aside1 {background-size: cover;}
+        .aside2 { background-size: cover;}
+    }
+    @media screen and (min-width:767px) and (max-width:959px){
+        .menu { justify-content: space-around;}
+        /* .main { height: auto} 원래오토 */
+        .aside1 { height: 300px;}
+        .aside2 { height: 300px;}
+        .ft { height: 100px;}
+        .main {background-size: cover;}
+    }
+    @media screen and (min-width:768px){
+        .aside1, .aside2 { flex: 1 ;}
+        }
+    @media screen and ( min-width:960px){
+        .hd { height: 100px;}
+        .main { flex: 1 auto;}
+        .aside1 { order: 1; height: calc(100% - 200px);}
+        .main {order: 2; height: calc(100% - 200px);}
+        .aside2 { order: 3; height: calc(100% - 200px);}
+        .ft {order: 4;}
+    }
+    </style>
+    <script>
+    </script>
+</head>
+<body>
+        <header id="hd">
+            <a href="" class="logo"><img src="./img/logo1.png" alt=""></a>
+                <nav id="gnb">
+                    <ul class="menu">
+                        <li>
+                            <a href="" class="dp1">SLEEP</a>
+                            <ul class="dp2">
+                                <li><a href="">SEA FRONT DELUXE TENT</a></li>
+                                <li><a href="">SEAVIEW DELUXE TENT</a></li>
+                                <li><a href="">GARDEN DELUXE TENT</a></li>
+                                <li><a href="">JUNGLE ROOMS</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="" class="dp1">DINE</a>
+                            <ul class="dp2">
+                                <li><a href="">Mare a Cielo</a></li>
+                                <li><a href="">Adria</a></li>
+                                <li><a href="">Estrella</a></li>
+                                <li><a href="">Cafe Indigo</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="" class="dp1">EXPLORE</a>
+                            <ul class="dp2">
+                                <li><a href="">Fitness Club</a></li>
+                                <li><a href="">Business Center</a></li>
+                                <li><a href="">Amenity</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="" class="dp1">BOOK</a>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+    <div class="wrap">  
+        <main class="main page">
+            <div class="page_wrap">
+                <h2 class="tit">MAMU</h2>
+                <a href="" class="more">detail</a>
+            </div>
+        </main>
+        <aside class="aside1 page">
+            
+            <div class="page_wrap">
+                    <h2 class="tit">ROOMS</h2>
+                    <a href="" class="more">detail</a>
+                </div>
+        </aside>
+        <aside class="aside2 page">
+            
+            <div class="page_wrap">
+                    <h2 class="tit">RESTAURANT</h2>
+                    <a href="" class="more">detail</a>
+                </div>
+        </aside>
+        <footer class="ft">© 2019 Tamu Hotel All rights reserved</footer>
+    </div>
+</body>
+</html>
