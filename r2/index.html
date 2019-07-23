@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>반응형2 - 인천국제공항공사</title>
+    <meta name="title" content="Incheon Airport">
+    <meta name="author" content="yujin">
+    <meta name="keyword" content="Incheon Airport">
+    <meta name="copyright" content="">
+    <!-- 기본 셋팅시 모바일 메신저로 넘기기 위한 셋팅 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="인천국제공항공사">
+    <meta property="og:image" content="">
+    <meta property="og:description" content="인천국제공항공사">
+    <link rel="stylesheet" href="./css/common.css" type="text/css" media="all">
+    <link rel="stylesheet" href="./css/mobile.css" type="text/css" media="screen and (max-width:750px)">
+    <link rel="stylesheet" href="./css/tablet.css" type="text/css" media="screen and (min-width:751px) and (max-width:1000px)">
+    <link rel="stylesheet" href="./css/desktop.css" type="text/css" media="screen and (min-width:1001px)">
+
+    <style>
+    *{margin: 0; padding: 0;}
+    body, html { width: 100%; -ms-overflow-style: none;}
+    ::-webkit-scrollbar { display: none;}
+    ul { list-style: none;}
+    a { text-decoration: none; color: inherit;}
+    input, button, label { background-color: transparent; background-image: none; border: 0; outline: 0;}
+    
+    .collap { display: none;}
+    .hd { width: 100%; height: 130px; background: #fff; position: fixed; top: 0;left: 0; z-index: 90;}
+    .tnb { width: 100%; height: 70px; float: left; border-bottom: 1px solid #eee;}
+    .left { float: left; padding-top: 30px; margin-left: 30px;}
+    .left li { float: left; margin-right: 25px;}
+    .left li a { display: block; font-size: 13px; padding-left: 18px; color: #787878;}
+    .left li.item1 { background: url(./img/navi_home.png) no-repeat;}
+    .left li.item2 { background: url(./img/navi_login.png) no-repeat;}
+    .left li.item3 { background: url(./img/navi_join.png) no-repeat;}
+    .left li.item4 { background: url(./img/navi_faq.png) no-repeat;}
+    .logo { display: block; background-image: url("./img/logo.png"); width: 468px; height: 36px; position: absolute; top: 20px; left: calc(50% - 234px);}
+    .right { float: right; margin-top: 30px; margin-right: 30px;}
+    .lang { float: left; margin-right: 20px;}
+    .lang_lst { visibility: hidden;}
+    .frm1 { float: left;}
+    .frm1 .in_data { text-indent: 1em;}
+    .frm1 .frm_btn { background-image: url("./img/navi_search.png"); background-repeat: no-repeat;}
+    .gnb { clear: both; position: relative; width: 1200px; height: 60px; margin: 0 auto; padding-top: 15px; transition: 0.5s; } /*  top: auto; right: auto; 설정했는데 설정하면 모바일로 볼때 right:-110%가 안 먹힘*/
+    /*만약 float:left 랑 clear:both 설정해주면 해제하기 위해  float:none; clear: none; 해야함*/
+    .gnb li { width: 200px; float: left;}
+    .dp1 {font-weight: bold;}
+    .dp2 { position: absolute; visibility: hidden;}
+    .main {background-position: center center; background-repeat: no-repeat; background-size: cover;
+     width: 100%; height: 100%; overflow: hidden;}
+    .main_wrap { width: 92%; margin: 0 auto; height: 100%;}
+    #main1 {  background-image: url("./img/in4.jpg"); }
+    .con_wrap { clear: both; width: 100%; box-sizing: border-box; padding-top: 226px; padding-bottom: 80px;}
+    #info_wrap:before{ width: 100%; height: 1px; background-color: #fff; content: ""; opacity: 0.3; position: absolute; top: 42px; left: 0;}
+    #main_tit { float: left; width: 25%; margin-top: 40px; }
+    #main_tit h2 { font-size: 45px; color: #fff; }
+    #main_tit p { font-size: 23px; color: #fff;}
+    #main_img {width: 40%; height: 100%; height: 400px; float: left; margin-left: 2.5%;}
+    #main_img a img { width: 100%; height: 100%;}
+    #vs { width: 30%; height: 233px; float: right; overflow: hidden;margin-top: 50px;}
+    .vs_lst {width: 200%; height: 100%;}
+    .vs_lst li { width: 50%; height: 100%; float: left; background-position: center center; background-repeat: no-repeat; background-size: cover;}
+    .vs_lst li.item1 { background-image: url(./img/in1.jpg);}
+    .vs_lst li.item2 { background-image: url(./img/in2.jpg);}
+    #info_wrap { width: 885px; margin-top: 160px; float: left; position: relative;}
+    #info_wrap h3 { font-size: 20px; line-height: 26px; color: #f49a25;margin-bottom: 6px; position: relative;}
+    #info_wrap ul { width: 885px; }
+    #info_wrap ul li { width: 33.33%; float: left; padding: 24px 10px 0px 45px; box-sizing: border-box; position: relative;}
+    #info_wrap ul li a span { display: block; width: 100%; font-size: 16px; line-height: 18px; color: #fff;
+    text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
+    #info_wrap h3:before { width: 12px; height: 12px; background-color: #f49a25; content: ""; border-radius: 6px;
+     position: absolute;left: 0;bottom: -22px;}
+    #info_wrap a:before { width: 6px; height: 6px; background: #fff; content: ""; border-radius: 3px;
+     position: absolute; left: 45px;top: 7px;}
+    #sns_wrap { width: 610px; margin-top: 160px; float: right; position: relative;}
+    #sns_wrap:before{ width: 100%; height: 1px; background-color: #fff; content: ""; opacity: 0.3; position: absolute; top: 42px; left: 0;}
+    #sns_wrap h3 { font-size: 20px; line-height: 26px; color: #f49a25; clear: both; margin-bottom: 6px; position: relative;}
+    #sns_wrap ul { width: 100%;}
+    #sns_wrap ul li { width: 25%; float: left; padding: 24px 10px 0px 70px; box-sizing: border-box; position: relative;}
+    #sns_wrap ul li a { display: block; color: #fff; font-size: 16px; line-height: 18px;}
+    #sns_wrap h3:before { width: 12px; height: 12px; background-color: #f49a25; border-radius: 6px; content: "";
+     position: absolute; left: 0; bottom: -22px;}
+    #sns_wrap li a:before { width: 36px; height: 36px; background: url("./img/icons.png") no-repeat; content: ""; position: absolute; left: 80px; top: -5px;}
+    #sns_wrap li.item1 a:before { background-position: -23px -23px;}
+    #sns_wrap li.item2 a:before { background-position: -58px -23px;}
+    #sns_wrap li.item3 a:before { background-position: -92px -23px;}
+    #sns_wrap li.item4 a:before { background-position: -127px -23px;}
+
+
+    #main2 { background-image: url("./img/bg1.jpg");}
+    #main3 { background-image: url("./img/bg3.jpg");}
+
+    
+    </style>
+</head>
+<body>
+    <nav class="collap">
+        <ul class="menu">
+            <li>
+                <a href="" class="dp1">공사소개</a>
+                <ul class="dp2">
+                    <li><a href="">CEO메시지</a></li>
+                    <li><a href="">일반현황</a></li>
+                    <li><a href="">마일스톤</a></li>
+                    <li><a href="">조직</a></li>
+                    <li><a href="">열린경영</a></li>
+                    <li><a href="">사회적 가치 실현</a></li>
+                    <li><a href="">경영공시</a></li>
+                    <li><a href="">오시는 길</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="dp1">사이버홍보실</a>
+                <ul class="dp2">
+                    <li><a href="">보도자료</a></li>
+                    <li><a href="">수상인증</a></li>
+                    <li><a href="">CI슬로건</a></li>
+                    <li><a href="">홍보동영상</a></li>
+                    <li><a href="">포토역사관</a></li>
+                    <li><a href="">간행물</a></li>
+                    <li><a href="">인쇄광고</a></li>
+                    <li><a href="">공항사진</a></li>
+                    <li><a href="">항공통계</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="dp1">고객참여</a>
+                <ul class="dp2">
+                    <li><a href="">공지사항</a></li>
+                    <li><a href="">정규직 전환 알림방</a></li>
+                    <li><a href="">일자리 플랫폼</a></li>
+                    <li><a href="">공항견학</a></li>
+                    <li><a href="">홍보관 관람</a></li>
+                    <li><a href="">전자민원</a></li>
+                    <li><a href="">청렴신문고</a></li>
+                    <li><a href="">정보공개</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="dp1">주요사업</a>
+                <ul class="dp2">
+                    <li><a href="">항공마케팅</a></li>
+                    <li><a href="">물류서비스</a></li>
+                    <li><a href="">에어포트시티</a></li>
+                    <li><a href="">해외사업</a></li>
+                    <li><a href="">글로벌 교육</a></li>
+                    <li><a href="">A_CDM</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="dp1">업무지원</a>
+                <ul class="dp2">
+                    <li><a href="">규정/서식</a></li>
+                    <li><a href="">업무 서비스</a></li>
+                    <li><a href="">출입증/촬영</a></li>
+                    <li><a href="">지원시설</a></li>
+                    <li><a href="">입주자 서비스 센터</a></li>
+                    <li><a href="">안전관리시스템</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="" class="dp1">인재채용</a>
+                <ul class="dp2">
+                    <li><a href="">채용안내</a></li>
+                    <li><a href="">인재상</a></li>
+                    <li><a href="">직무소개</a></li>
+                    <li><a href="">채용공고</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <header class="hd">
+        <div class="tnb">
+            <div class="left">
+                <ul>
+                    <li class="item1"><a href="">처음으로</a></li>
+                    <li class="item2"><a href="">로그인</a></li>
+                    <li class="item3"><a href="">회원가입</a></li>
+                    <li class="item4"><a href="">고객센터</a></li>
+                </ul>
+            </div>
+            <a href="" class="logo"></a>
+            <div class="right">
+                <div class="lang">
+                    <button class="this_lang">Language</button>
+                    <ul class="lang_lst">
+                        <li><a href="">한국어</a></li>
+                        <li><a href="">English</a></li>
+                        <li><a href="">中文</a></li>
+                        <li><a href="">日本語</a></li>
+                    </ul>
+                </div>
+                <form action="" class="frm1">
+                    <fieldset>
+                        <input type="text" id="keyword" class="in_data" placeholder="검색어를 입력하세요.">
+                        <input type="submit" value="검색" class="frm_btn" >
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+        <nav class="gnb">
+            <ul class="menu">
+                <li>
+                    <a href="" class="dp1">공사소개</a>
+                    <ul class="dp2">
+                        <li><a href="">CEO메시지</a></li>
+                        <li><a href="">일반현황</a></li>
+                        <li><a href="">마일스톤</a></li>
+                        <li><a href="">조직</a></li>
+                        <li><a href="">열린경영</a></li>
+                        <li><a href="">사회적 가치 실현</a></li>
+                        <li><a href="">경영공시</a></li>
+                        <li><a href="">오시는 길</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">사이버홍보실</a>
+                    <ul class="dp2">
+                        <li><a href="">보도자료</a></li>
+                        <li><a href="">수상인증</a></li>
+                        <li><a href="">CI슬로건</a></li>
+                        <li><a href="">홍보동영상</a></li>
+                        <li><a href="">포토역사관</a></li>
+                        <li><a href="">간행물</a></li>
+                        <li><a href="">인쇄광고</a></li>
+                        <li><a href="">공항사진</a></li>
+                        <li><a href="">항공통계</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">고객참여</a>
+                    <ul class="dp2">
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">정규직 전환 알림방</a></li>
+                        <li><a href="">일자리 플랫폼</a></li>
+                        <li><a href="">공항견학</a></li>
+                        <li><a href="">홍보관 관람</a></li>
+                        <li><a href="">전자민원</a></li>
+                        <li><a href="">청렴신문고</a></li>
+                        <li><a href="">정보공개</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">주요사업</a>
+                    <ul class="dp2">
+                        <li><a href="">항공마케팅</a></li>
+                        <li><a href="">물류서비스</a></li>
+                        <li><a href="">에어포트시티</a></li>
+                        <li><a href="">해외사업</a></li>
+                        <li><a href="">글로벌 교육</a></li>
+                        <li><a href="">A_CDM</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">업무지원</a>
+                    <ul class="dp2">
+                        <li><a href="">규정/서식</a></li>
+                        <li><a href="">업무 서비스</a></li>
+                        <li><a href="">출입증/촬영</a></li>
+                        <li><a href="">지원시설</a></li>
+                        <li><a href="">입주자 서비스 센터</a></li>
+                        <li><a href="">안전관리시스템</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">인재채용</a>
+                    <ul class="dp2">
+                        <li><a href="">채용안내</a></li>
+                        <li><a href="">인재상</a></li>
+                        <li><a href="">직무소개</a></li>
+                        <li><a href="">채용공고</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main" id="main1">
+        <div class="main_wrap">
+            <div class="con_wrap">
+                <div id="main_tit">
+                    <h2>EXPECT EXCEPTIONAL</h2>
+                    <p>제2의 도약, 글로벌 리딩공항</p>
+                </div>
+                <div id="main_img">
+                    <a href=""><img src="./img/y.jpg" alt=""></a>
+                </div>
+                <figure id="vs">
+                    <ul class="vs_lst">
+                        <li class="item1"><a href=""></a></li>
+                        <li class="item2"><a href=""></a></li>
+                    </ul>
+                </figure>
+                <div id="info_wrap">
+                    <h3>NOTICE</h3>
+                    <ul>
+                        <li><a href="">
+                            <span>07.11</span>
+                            <span>여름철 물놀이 안전수칙 안내</span>
+                        </a></li>
+                        <li><a href="">
+                            <span>07.10</span>
+                            <span>2019년 상반기 귀빈실 사용실적 통계</span>
+                        </a></li>
+                        <li><a href="">
+                            <span>07.01</span>
+                            <span>제2회 대한민국 사회적경제 박람회 알림</span>
+                        </a></li>
+                    </ul>
+                </div>
+                <div id="sns_wrap">
+                    <h3>SNS</h3>
+                    <ul>
+                        <li class="item1"><a href="">instagram</a></li>
+                        <li class="item2"><a href="">facebook</a></li>
+                        <li class="item3"><a href="">twitter</a></li>
+                        <li class="item4"><a href="">youtube</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+    <main class="main" id="main2">
+        <div class="main_wrap"></div>
+    </main>
+    <main class="main" id="main3">
+        <div class="main_wrap">
+            <footer class="ft"></footer>
+        </div>
+    </main>
+</body>
+</html>
