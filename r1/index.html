@@ -14,8 +14,17 @@
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     
     <style>
-    .collap { position: fixed;top: 0;right: -110%;z-index: 80; transition: 0.5s;}
-    .collap.on { right: 0;}
+    .collap { position: fixed;top: 0;right: -180%;z-index: 80; transition: 0.5s;}
+    .collap.on { right: 0; background: #000; width: 100%; height: 100%; margin-top: 60px;}
+    .collap li { clear:both; position:relative; }    
+    .collap li a { display:block; height:32px; }    
+    .collap li a.dp1 { color:#ccc; line-height:3;  cursor:pointer;  padding-left: 3rem;  height:42px; font-size:1.2rem; font-weight:bold; }
+    .collap li a.dp1:after { content:"▼"; position:absolute;  left:70%; }    
+    .collap li.on a.dp1:after { content:"▲";  }        
+    .collap li ul.dp2 { display:none; visibility:visible; opacity:1; height:auto;  transition:0.6s; width:100%; background:transparent; position:static; }
+    .collap li.on ul.dep2 { display:block;  }    
+    .collap li ul.dep2 li { line-height:2;  }     
+    .collap li ul.dep2 li a { color:#333; font-size:1rem; }   
     .hd { position: fixed;top: 0;left: 0;z-index: 90;height: 60px;width: 100%; background: rgba(255, 255, 255, 0.671);}
     .hd.on { }
     .hd.off { }
@@ -43,6 +52,7 @@
     .lst_btn.on .item2 { width: 30px; transform: rotate(-45deg); top: 23px;}
     
     #page1{clear: both; width: 100%; height: 100vh;}
+    #page1 video {width="100vw"; height="100vh";}
     #page2 { clear: both; width: 100%; height: 100vh;}
     .vs {width: 100%; height: 100vh;overflow: hidden; position: relative; clear: both;}
     .vs_lst { width: 600%; height: 100vh;}
@@ -53,9 +63,10 @@
     .vs_lst li.item4 {background-image: url("./img/visual4.jpg");}
     .vs_lst li.item5 {background-image: url("./img/visual5.jpg");}
     .vs_lst li.item6 {background-image: url("./img/visual6.jpg");}
-    .vs_tit { padding-left: 50px; padding-top: 6em;}
-    .vs_com { padding-left: 50px; padding-top: 4em;}
-    .vs_more { padding-left: 60px; padding-top: 2em;}
+    .tit_box { width: 650px; padding: 20px; border: 2px solid #fff; margin-left: 70px; margin-top: 100px;}
+    .vs_tit { padding-left: 50px; padding-top: 6em; font-size: 52px;}
+    .vs_com { padding-left: 50px; padding-top: 4em; font-size: 30px;}
+    .vs_more { padding-left: 60px; padding-top: 2em; font-size: 24px;}
     
     [class*=vs] li.on .vs_tit {padding-top: 6em; opacity: 1;}
 
@@ -69,17 +80,20 @@
     .tit_box a {color: #fff;}
     
     #page3 { width: 100%; height: 100vh;
-     background-position: center center; background-repeat: no-repeat; background-size: cover; background-image: url(./img/RLMAG.jpg); background-attachment: fixed;}
-    #page3 p { color: #fff;}
+     background-position: center center; background-repeat: no-repeat; background-size: cover; background-image: url(./img/RLMAG.jpg); background-attachment: fixed; position: relative;}
+    #page3 p { color: #fff; position: absolute; width: 600px; height: auto; text-align: center; font-size: 35px; top:75%; left: calc(50% - 300px); z-index: 3;}
     #page4 { clear: both; width: 100%; height: 100vh;}
     #page4 .item1{background-image: url(./img/thum1.jpg);}
     #page4 .item2{background-image: url(./img/thum2.jpg);}
     #page4 .item3{background-image: url(./img/thum3.jpg);}
     .thum_lst {width: 100%; height: 100%;}
-    .thum_lst li { width: 33.3333%; height: 100%; float: left; background-color: #000; opacity: 0.5; background-repeat: no-repeat; background-position: center center; background-size: cover;  position: relative;}
-    .pic_box { position: absolute; top: 30%; left: 35%; width: 44%; height: 40%;}
-    .pic_box img { display: block; width: 70px; height: 70px; border-radius: 50%; padding: 60px;
-    background-color: rgba(65, 65, 65, 0.5); background-repeat: no-repeat; background-position: center center;}
+    .thum_lst li { width: 33.3333%; height: 100%; float: left; background-color: #000; background-repeat: no-repeat; background-position: center center; background-size: cover;  position: relative;}
+    .thum_lst li a { display:block; width:100%; height:100%;background:rgba(0,0,0,0.5); transition:0.5s; box-sizing:border-box; padding-top:6rem; } 
+    .thum_lst li a:hover { background:rgba(0,0,0,0); }   
+        
+    .pic_box { position: absolute; top: calc(50% - 20%); left: calc(50% - 22%); width: 44%; height: 40%; text-align: center;}
+    .pic_box img { display: block; width: 70px; height: 70px; border-radius: 50%; padding: 80px;
+    background-color: rgba(0,0,0, 0.5); background-repeat: no-repeat; background-position: center center; }
     .pic_box h2 { font-weight: bold; font-size: 33px;}
     .pic_box p { font-weight: bold; font-size: 16px; }
     #ft { clear: both; width: 100%; height: 100px; background: #666666;}
@@ -87,10 +101,28 @@
     .fnb li { float: left; margin-right: 1em; margin-top: 2em;}
     @media screen and (max-width:767px){
         /* 모바일 사이즈 */
-        .thum_lst li { width: 100%; height: 33.3333%; float: none; clear: both;}
+    .thum_lst li { width: 100%; height: 33.3333%; float: none; clear: both;}
+    .pic_box { top: calc(50% - 20%); left: calc(50% - 35%); width: 70%; height: 40%;}
+    .pic_box img { width: 40px; height: 40px; border-radius: 50%; padding: 40px; margin: 0 auto;}
+    .pic_box h2 { font-weight: 600; font-size: 25px;}
+    .pic_box p { font-weight: 400; font-size: 12px; }
+    #page1 { width: 100%; height: auto;padding-top: 60px;}
+    #page1 video { width: 100%; height: auto;}
+    #page2 {  height: 600px;}
+    .vs { height: 100%;}
+    .vs_lst {height: 100%;}
+    .vs_lst li { height: 100%;}
+    .tit_box { width: 350px; padding: 20px; border: 2px solid #fff; margin-left: 70px; margin-top: 10px;}
+    .vs_tit { padding-left: 50px; padding-top: 5em; font-size: 45px;}
+    .vs_com { padding-left: 50px; padding-top: 4em; font-size: 22px;}
+    .vs_more { padding-left: 60px; padding-top: 3em; font-size: 16px;}
+    
     }
     @media screen and (min-width:768px) and (max-width:1280px) {
-
+    .pic_box {  width: 60%; left: calc(50% - 30%);}
+    .pic_box img { width: 30px; height: 30px; border-radius: 50%; padding: 30px; margin: 0 auto;}
+    .pic_box h2 { font-weight: 500; font-size: 20px;}
+    .pic_box p { font-weight: 400; font-size: 11px; }
     }
     </style>
     <script>
@@ -169,41 +201,41 @@
             <li>
                 <a class="dp1">RL50</a>
          <ul class="dp2">
-             <li><a href=""><img src="./img/rl.jpg" alt="">RL50</a></li>
-             <li><a href=""><img src="./img/thum1.jpg" alt="">RL50 RUNWAY</a></li>
+             <li><a href="">RL50</a></li>
+             <li><a href="">RL50 RUNWAY</a></li>
          </ul>
          </li>
             <li>
                 <a class="dp1">남성</a>
                 <ul class="dp2">
-                    <li><a href=""><img src="./img/pp.jpg" alt="">PUPLE LABEL</a></li>
-                    <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
-                    <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                    <li><a href="">PUPLE LABEL</a></li>
+                    <li><a href="">POLO RALPH LAUREN</a></li>
+                    <li><a href="">타임피스 & 쥬얼리</a></li>
                 </ul>
              </li>
             <li>
                 <a class="dp1">여성</a>
                 <ul class="dp2">
-                    <li><a href=""><img src="" alt="">RALPH LAUREN COLLECTION</a></li>
-                    <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
-                    <li><a href=""><img src="" alt="">LAUREN</a></li>
-                    <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                    <li><a href="">RALPH LAUREN COLLECTION</a></li>
+                    <li><a href="">POLO RALPH LAUREN</a></li>
+                    <li><a href="">LAUREN</a></li>
+                    <li><a href="">타임피스 & 쥬얼리</a></li>
                 </ul>
              </li>
             <li>
                 <a class="dp1">아동</a>
                 <ul class="dp2">
-                    <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
-                    <li><a href=""><img src="" alt="">RALPH LAUREN BABY</a></li>
+                    <li><a href="">POLO RALPH LAUREN</a></li>
+                    <li><a href="">RALPH LAUREN BABY</a></li>
                 </ul>
              </li>
             <li>
                 <a class="dp1">WORLD OF RALPH LAUREN</a>
                 <ul class="dp2">
-                    <li><a href=""><img src="" alt="">브랜드 스토리</a></li>
-                    <li><a href=""><img src="" alt="">플래그쉽 스토어</a></li>
-                    <li><a href=""><img src="" alt="">레스토랑</a></li>
-                    <li><a href=""><img src="" alt="">RL STYLE</a></li>
+                    <li><a href="">브랜드 스토리</a></li>
+                    <li><a href="">플래그쉽 스토어</a></li>
+                    <li><a href="">레스토랑</a></li>
+                    <li><a href="">RL STYLE</a></li>
                 </ul>
              </li>
             <li>
@@ -218,41 +250,41 @@
                     <li>
                         <a class="dp1">RL50</a>
                  <ul class="dp2">
-                     <li><a href=""><img src="./img/rl.jpg" alt="">RL50</a></li>
-                     <li><a href=""><img src="./img/thum1.jpg" alt="">RL50 RUNWAY</a></li>
+                     <li><a href="">RL50</a></li>
+                     <li><a href="">RL50 RUNWAY</a></li>
                  </ul>
                  </li>
                     <li>
                         <a class="dp1">남성</a>
                         <ul class="dp2">
-                            <li><a href=""><img src="./img/pp.jpg" alt="">PUPLE LABEL</a></li>
-                            <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
-                            <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                            <li><a href="">PUPLE LABEL</a></li>
+                            <li><a href="">POLO RALPH LAUREN</a></li>
+                            <li><a href="">타임피스 & 쥬얼리</a></li>
                         </ul>
                      </li>
                     <li>
                         <a class="dp1">여성</a>
                         <ul class="dp2">
-                            <li><a href=""><img src="" alt="">RALPH LAUREN COLLECTION</a></li>
-                            <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
-                            <li><a href=""><img src="" alt="">LAUREN</a></li>
-                            <li><a href=""><img src="" alt="">타임피스 & 쥬얼리</a></li>
+                            <li><a href="">RALPH LAUREN COLLECTION</a></li>
+                            <li><a href="">POLO RALPH LAUREN</a></li>
+                            <li><a href="">LAUREN</a></li>
+                            <li><a href="">타임피스 & 쥬얼리</a></li>
                         </ul>
                      </li>
                     <li>
                         <a class="dp1">아동</a>
                         <ul class="dp2">
-                            <li><a href=""><img src="" alt="">POLO RALPH LAUREN</a></li>
-                            <li><a href=""><img src="" alt="">RALPH LAUREN BABY</a></li>
+                            <li><a href="">POLO RALPH LAUREN</a></li>
+                            <li><a href="">RALPH LAUREN BABY</a></li>
                         </ul>
                      </li>
                     <li>
                         <a class="dp1">WORLD OF RALPH LAUREN</a>
                         <ul class="dp2">
-                            <li><a href=""><img src="" alt="">브랜드 스토리</a></li>
-                            <li><a href=""><img src="" alt="">플래그쉽 스토어</a></li>
-                            <li><a href=""><img src="" alt="">레스토랑</a></li>
-                            <li><a href=""><img src="" alt="">RL STYLE</a></li>
+                            <li><a href="">브랜드 스토리</a></li>
+                            <li><a href="">플래그쉽 스토어</a></li>
+                            <li><a href="">레스토랑</a></li>
+                            <li><a href="">RL STYLE</a></li>
                         </ul>
                      </li>
                     <li>
@@ -274,7 +306,7 @@
            </div>
        </header>
        <div class="page" id="page1">
-           <video src="./img/vdo.mp4" width="100vw" height="100vh" autoplay></video>
+           <video src="./img/vdo.mp4" autoplay></video>
        </div>
        <div class="page" id="page2">
            <figure class="vs">
