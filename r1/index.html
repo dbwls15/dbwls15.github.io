@@ -30,6 +30,7 @@
     .hd.off { }
     .logo { display: block;float: left; margin-left: 2em;margin-top: 1.2em;}
     .logo img { display: block; width: 250px; height: auto;}
+    .gnb {display: none;}
     .gnb { float: right; margin-right: 200px; margin-top: 1em; font-size: 16px;}
     .gnb li {float: left;}
     .gnb li a { color: #777; padding-left: 35px; padding-right: 35px; font-weight: bold;}
@@ -52,7 +53,7 @@
     .lst_btn.on .item2 { width: 30px; transform: rotate(-45deg); top: 23px;}
     
     #page1{clear: both; width: 100%; height: 100vh;}
-    #page1 video {width="100vw"; height="100vh";}
+    #page1 video {width:"100vw"; height:"100vh";}
     #page2 { clear: both; width: 100%; height: 100vh;}
     .vs {width: 100%; height: 100vh;overflow: hidden; position: relative; clear: both;}
     .vs_lst { width: 600%; height: 100vh;}
@@ -64,9 +65,11 @@
     .vs_lst li.item5 {background-image: url("./img/visual5.jpg");}
     .vs_lst li.item6 {background-image: url("./img/visual6.jpg");}
     .tit_box { width: 650px; padding: 20px; border: 2px solid #fff; margin-left: 70px; margin-top: 100px;}
-    .vs_tit { padding-left: 50px; padding-top: 6em; font-size: 52px;}
-    .vs_com { padding-left: 50px; padding-top: 4em; font-size: 30px;}
-    .vs_more { padding-left: 60px; padding-top: 2em; font-size: 24px;}
+    .vs_tit { padding-left: 50px; padding-top: 6em; font-size: 52px; color: #fff;}
+    .vs_com { padding-left: 50px; padding-top: 4em; font-size: 30px; color: #fff; margin-bottom: 20px;}
+    .vs_more { padding-left: 50px; padding-top: 8em; font-size: 24px; color: #fff;}
+
+  
     
     [class*=vs] li.on .vs_tit {padding-top: 6em; opacity: 1;}
 
@@ -192,6 +195,20 @@
                 return false;
             }
         });
+
+        //슬라이드 애니메이션
+        var wd = $(window).width();
+        var sl = $(".vs_lst");
+        function nextSlideAni(){
+            sl.not(":animated").animate({"margin-left": -wd+"px"}, 800 , function(){
+            sl.find("li").eq(0).appendTo(sl);
+            sl.css("margin-left","0px");
+        });
+    }
+        var intv1 = setInterval(function(){
+            nextSlideAni();
+        },3000);
+                
     });
     </script>
 </head>
@@ -245,7 +262,7 @@
     </nav> 
        <header class="hd">
            <a href="" class="logo"><img src="./img/logo.png" alt=""></a>
-           <nav class="collap">
+           <nav class="gnb">
                 <ul class="menu">
                     <li>
                         <a class="dp1">RL50</a>
@@ -319,29 +336,39 @@
                         </div>
                    </li>
                    <li class="item2">
+                        <div class="tit_box">
                         <h2 class="vs_tit">POLO RALPH LAUREN</h2>
                         <p class="vs_com">폴로</p>
                         <a href="" class="vs_more">지금 둘러보기</a>
+                        </div>
                     </li>
                    <li class="item3">
+                        <div class="tit_box">
                         <h2 class="vs_tit">POLO RALPH LAUREN</h2>
                         <p class="vs_com">더 얼쓰 폴로. 대자인의 의미를 담은 디자인</p>
                         <a href="" class="vs_more">지금 둘러보기</a>
+                        </div>
                     </li>
                    <li class="item4">
+                        <div class="tit_box">
                         <h2 class="vs_tit">POLO RALPH LAUREN</h2>
                         <p class="vs_com">키즈</p>
                         <a href="" class="vs_more">지금 둘러보기</a>
+                        </div>
                    </li>
                    <li class="item5">
+                        <div class="tit_box">
                         <h2 class="vs_tit">POLO RALPH LAUREN</h2>
                         <p class="vs_com">더 얼쓰 폴로. 대자인의 의미를 담은 디자인</p>
                         <a href="" class="vs_more">지금 둘러보기</a>
+                        </div>
                    </li>
                    <li class="item6">
+                        <div class="tit_box">
                         <h2 class="vs_tit">POLO RALPH LAUREN</h2>
                         <p class="vs_com">폴로 스포츠</p>
                         <a href="" class="vs_more">지금 둘러보기</a>
+                        </div>
                    </li>
                </ul>
                <ul class="btnbox1">
