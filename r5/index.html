@@ -19,7 +19,8 @@
 </head>
 <style>
 *{ margin: 0; padding: 0;}
-body, html { font-weight: 400; text-align: center; color: #666; font-size: 16px; line-height: 1;}
+body, html { font-weight: 400; text-align: center; color: #666; font-size: 16px; line-height: 1; width: 100%; -ms-overflow-style: none;}
+::-webkit-scrollbar { display: none;}
 ul { list-style: none;}
 a { text-decoration: none; cursor: pointer; color: #666;}
 img { outline: 0; border: 0;}
@@ -28,18 +29,26 @@ img { outline: 0; border: 0;}
 .logo { display: block; position: fixed; top: 5%; left: 5%; width: 54px; height: 62px; z-index: 999; }
 .join { display: block; position: fixed; top: 5%; right: 5%; font-size: 16px; padding-right: 47px; font-weight: 300; line-height: 28px; z-index: 999; background: url(./img/watch.png) no-repeat right top; background-size: 28px auto;}
 
-#container { padding-top: 50px; width: 92%; margin: 0 auto;}
-.line { text-align: center;}
+#container { padding-top: 50px; width: 92%; margin: 0 auto; height: 100%;}
+.line { text-align: center; }
 .line_lst > li {height: 58px; display: inline-block;}
 .line_lst li a { display: block; float: left; width: 6px; height: 23px; margin: 18px 7px; font-size: 0; border-radius: 3px; background: #a19e9d; transition: 0.6s;}
 .line_lst li.on a { height: 58px; margin-top: 0; margin-bottom: 0; background: rgb(214, 38, 38);}
+.circle_wrap { width: 90%; margin: 0 auto;}
 .circle_tit { font-size: 30px; color: #666; font-weight: 300; padding: 55px 0;}
 .circle_lst { }
-.circle_lst li { float: left; margin: 15px;}
+.circle_lst li { float: left; margin: 15px; transform-style: preserve-3d; transition: transform 1s; background-repeat: no-repeat; background-position: center center; width: 320px; height: 320px; border-radius: 50%; position: relative; margin: 0 auto;}
+.circle_lst li.it1 { background-image: url("./img/cof1.png")}
+.circle_lst li.it2 { background-image: url("./img/cof2.png")}
+.circle_lst li.it3 { background-image: url("./img/cof3.png")}
+.circle_lst li.it4 { background-image: url("./img/cof4.png")}
+.circle_lst li.it5 { background-image: url("./img/cof5.png")}
+.circle_lst li.it6 { background-image: url("./img/cof6.png")}    
+.circle_lst li:hover { transform: rotateZ(360deg);  box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.6); }
 .circle_lst li a { display: block;}
-.circle_lst li a img{width: 326px; height: 326px; border-radius: 50%;}
-
-
+.name { display: block; font-size: 22px; color: #fff; font-weight: 600;  margin-top: 150px; transform: rotateZ(0deg);}
+.black { display: block; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: #000; opacity: 0; z-index: 10; border-radius: 50%; }
+.black:hover { opacity: 0.5;}
 </style>
 <body>
 <section id="wrap">
@@ -61,12 +70,18 @@ img { outline: 0; border: 0;}
         <h2 class="circle_tit">COFFEE</h2>
         <div class="circle_wrap">
             <ul class="circle_lst">
-                <li><a href=""><img src="./img/cof1.png" alt=""><span></span></a></li>
-                <li><a href=""><img src="./img/cof2.png" alt=""><span></span></a></li>
-                <li><a href=""><img src="./img/cof3.png" alt=""><span></span></a></li>
-                <li><a href=""><img src="./img/cof4.png" alt=""><span></span></a></li>
-                <li><a href=""><img src="./img/cof5.png" alt=""><span></span></a></li>
-                <li><a href=""><img src="./img/cof6.png" alt=""><span></span></a></li>
+                <li class="it1"><a href="">
+                <div class="black"><span class="name">티라미스 크림라떼</span></div></a></li>
+                <li class="it2"><a href="">
+                <div class="black"><span class="name">카라멜 마키아또</span></div></a></li>
+                <li class="it3"><a href="">
+                <div class="black"><span class="name">콜드브루</span></div></a></li>
+                <li class="it4"><a href="">
+                <div class="black"><span class="name">스위트 크림라떼</span></div></a></li>
+                <li class="it5"><a href="">
+                <div class="black"><span class="name">아포가토</span></div></a></li>
+                <li class="it6"><a href="">
+                <div class="black"><span class="name">에스프레소</span></div></a></li>
             </ul>
         </div>
     </section>
