@@ -38,9 +38,9 @@
     .sub li img {display: block; width: 120px; height: 90px;}
     .sub { display: none;}
     .lang { width: 100px; height: 26px; position: absolute; top: 28%; right: 95px;z-index: 99; border: 2px solid #666; box-sizing: border-box; padding: 2px 15px;}
-    .lang a span { display: block; position: relative; line-height: 32px; font-size: 13px; color: #666; font-weight: bold; background-image: url(./img/lang.png); background-repeat: no-repeat; background-position: 0 center;
+    .lang a { display: block; position: relative; line-height: 32px; font-size: 13px; color: #666; font-weight: bold; background-image: url(./img/lang.png); background-repeat: no-repeat; background-position: 0 center;
      padding-right: 16px; padding-left: 24px; margin-top: -8px; margin-left: -7px;}
-     .lang ul { height: 0; overflow: hidden; width: 100px; }
+     .lang ul { height: 0; overflow: hidden; width: 100px; background: rgba(255, 255, 255, 0.671); color: #666; padding-left: 16px;}
      .lang:hover ul { height: auto; }
     /* .lst_btn { width: 26px; height: 26px; position: absolute; top: 7px; right: 30px; background-image: url(./img/list.png); background-repeat: no-repeat;} */
     .lst_btn { display: block; width: 36px; height: 36px; box-sizing: border-box; /*border: 2px solid #777;*/ position: absolute; right: 1%; top: 0.5em; z-index: 99;cursor: pointer;}
@@ -59,11 +59,11 @@
     .vs_lst { width: 600%; height: 100vh;}
     .vs_lst li {width: 16.6666666666%; float: left; height: 100vh; background-repeat: no-repeat; background-size: cover;background-position: center center;}
     .vs_lst li.item1 {background-image: url("./img/visual11.jpg");}
-    .vs_lst li.item2 {background-image: url("./img/visual2.jpg");}
-    .vs_lst li.item3 {background-image: url("./img/visual3.jpg");}
+    .vs_lst li.item2 {background-image: url("./img/ban4.jpg");}
+    .vs_lst li.item3 {background-image: url("./img/palace.jpg");}
     .vs_lst li.item4 {background-image: url("./img/visual4.jpg");}
     .vs_lst li.item5 {background-image: url("./img/visual5.jpg");}
-    .vs_lst li.item6 {background-image: url("./img/visual6.jpg");}
+    .vs_lst li.item6 {background-image: url("./img/kid.jpg");}
     .tit_box { width: 650px; padding: 20px; border: 2px solid #fff; margin-left: 70px; margin-top: 100px;}
     .vs_tit { padding-left: 50px; padding-top: 6em; font-size: 52px; color: #fff;}
     .vs_com { padding-left: 50px; padding-top: 4em; font-size: 30px; color: #fff; margin-bottom: 20px;}
@@ -99,9 +99,10 @@
     background-color: rgba(0,0,0, 0.5); background-repeat: no-repeat; background-position: center center; }
     .pic_box h2 { font-weight: bold; font-size: 33px;}
     .pic_box p { font-weight: bold; font-size: 16px; }
-    #ft { clear: both; width: 100%; height: 100px; background: #666666;}
-    .fnb { background: #999; color: #fff; }
-    .fnb li { float: left; margin-right: 1em; margin-top: 2em;}
+    #ft { clear: both; width: 100%; height: 100px; background: #142638;}
+    .fnb { background: #999; color: #fff; width: 850px; margin: 0 auto;}
+    .fnb li { float: left; margin-right: 2em; margin-top: 2em;}
+    .fnb li a { display: block;}
     @media screen and (max-width:767px){
         /* 모바일 사이즈 */
     .thum_lst li { width: 100%; height: 33.3333%; float: none; clear: both;}
@@ -119,7 +120,7 @@
     .vs_tit { padding-left: 50px; padding-top: 5em; font-size: 45px;}
     .vs_com { padding-left: 50px; padding-top: 4em; font-size: 22px;}
     .vs_more { padding-left: 60px; padding-top: 3em; font-size: 16px;}
-    
+    .fnb { width: 420px; margin: 0 auto;}
     }
     @media screen and (min-width:768px) and (max-width:1280px) {
     .pic_box {  width: 60%; left: calc(50% - 30%);}
