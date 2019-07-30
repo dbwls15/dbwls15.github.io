@@ -19,82 +19,7 @@
     <link rel="stylesheet" href="./css/tablet.css" type="text/css" media="screen and (min-width:751px) and (max-width:1000px)">
     <link rel="stylesheet" href="./css/desktop.css" type="text/css" media="screen and (min-width:1001px)">
 
-    <style>
-    *{margin: 0; padding: 0;}
-    body, html { width: 100%; -ms-overflow-style: none;}
-    ::-webkit-scrollbar { display: none;}
-    ul { list-style: none;}
-    a { text-decoration: none; color: inherit;}
-    input, button, label { background-color: transparent; background-image: none; border: 0; outline: 0;}
-    
-    .collap { display: none;}
-    .hd { width: 100%; height: 130px; background: #fff; position: fixed; top: 0;left: 0; z-index: 90;}
-    .tnb { width: 100%; height: 70px; float: left; border-bottom: 1px solid #eee;}
-    .left { float: left; padding-top: 30px; margin-left: 30px;}
-    .left li { float: left; margin-right: 25px;}
-    .left li a { display: block; font-size: 13px; padding-left: 18px; color: #787878;}
-    .left li.item1 { background: url(./img/navi_home.png) no-repeat;}
-    .left li.item2 { background: url(./img/navi_login.png) no-repeat;}
-    .left li.item3 { background: url(./img/navi_join.png) no-repeat;}
-    .left li.item4 { background: url(./img/navi_faq.png) no-repeat;}
-    .logo { display: block; background-image: url("./img/logo.png"); width: 468px; height: 36px; position: absolute; top: 20px; left: calc(50% - 234px);}
-    .right { float: right; margin-top: 30px; margin-right: 30px;}
-    .lang { float: left; margin-right: 20px;}
-    .lang_lst { visibility: hidden;}
-    .frm1 { float: left;}
-    .frm1 .in_data { text-indent: 1em;}
-    .frm1 .frm_btn { background-image: url("./img/navi_search.png"); background-repeat: no-repeat;}
-    .gnb { clear: both; position: relative; width: 1200px; height: 60px; margin: 0 auto; padding-top: 15px; transition: 0.5s; } /*  top: auto; right: auto; 설정했는데 설정하면 모바일로 볼때 right:-110%가 안 먹힘*/
-    /*만약 float:left 랑 clear:both 설정해주면 해제하기 위해  float:none; clear: none; 해야함*/
-    .gnb li { width: 200px; float: left;}
-    .dp1 {font-weight: bold;}
-    .dp2 { position: absolute; visibility: hidden;}
-    .main {background-position: center center; background-repeat: no-repeat; background-size: cover;
-     width: 100%; height: 100%; overflow: hidden;}
-    .main_wrap { width: 92%; margin: 0 auto; height: 100%;}
-    #main1 {  background-image: url("./img/in4.jpg"); }
-    .con_wrap { clear: both; width: 100%; box-sizing: border-box; padding-top: 226px; padding-bottom: 80px;}
-    #info_wrap:before{ width: 100%; height: 1px; background-color: #fff; content: ""; opacity: 0.3; position: absolute; top: 42px; left: 0;}
-    #main_tit { float: left; width: 25%; margin-top: 40px; }
-    #main_tit h2 { font-size: 45px; color: #fff; }
-    #main_tit p { font-size: 23px; color: #fff;}
-    #main_img {width: 40%; height: 100%; height: 400px; float: left; margin-left: 2.5%;}
-    #main_img a img { width: 100%; height: 100%;}
-    #vs { width: 30%; height: 233px; float: right; overflow: hidden;margin-top: 50px;}
-    .vs_lst {width: 200%; height: 100%;}
-    .vs_lst li { width: 50%; height: 100%; float: left; background-position: center center; background-repeat: no-repeat; background-size: cover;}
-    .vs_lst li.item1 { background-image: url(./img/in1.jpg);}
-    .vs_lst li.item2 { background-image: url(./img/in2.jpg);}
-    #info_wrap { width: 885px; margin-top: 160px; float: left; position: relative;}
-    #info_wrap h3 { font-size: 20px; line-height: 26px; color: #f49a25;margin-bottom: 6px; position: relative;}
-    #info_wrap ul { width: 885px; }
-    #info_wrap ul li { width: 33.33%; float: left; padding: 24px 10px 0px 45px; box-sizing: border-box; position: relative;}
-    #info_wrap ul li a span { display: block; width: 100%; font-size: 16px; line-height: 18px; color: #fff;
-    text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
-    #info_wrap h3:before { width: 12px; height: 12px; background-color: #f49a25; content: ""; border-radius: 6px;
-     position: absolute;left: 0;bottom: -22px;}
-    #info_wrap a:before { width: 6px; height: 6px; background: #fff; content: ""; border-radius: 3px;
-     position: absolute; left: 45px;top: 7px;}
-    #sns_wrap { width: 610px; margin-top: 160px; float: right; position: relative;}
-    #sns_wrap:before{ width: 100%; height: 1px; background-color: #fff; content: ""; opacity: 0.3; position: absolute; top: 42px; left: 0;}
-    #sns_wrap h3 { font-size: 20px; line-height: 26px; color: #f49a25; clear: both; margin-bottom: 6px; position: relative;}
-    #sns_wrap ul { width: 100%;}
-    #sns_wrap ul li { width: 25%; float: left; padding: 24px 10px 0px 70px; box-sizing: border-box; position: relative;}
-    #sns_wrap ul li a { display: block; color: #fff; font-size: 16px; line-height: 18px;}
-    #sns_wrap h3:before { width: 12px; height: 12px; background-color: #f49a25; border-radius: 6px; content: "";
-     position: absolute; left: 0; bottom: -22px;}
-    #sns_wrap li a:before { width: 36px; height: 36px; background: url("./img/icons.png") no-repeat; content: ""; position: absolute; left: 80px; top: -5px;}
-    #sns_wrap li.item1 a:before { background-position: -23px -23px;}
-    #sns_wrap li.item2 a:before { background-position: -58px -23px;}
-    #sns_wrap li.item3 a:before { background-position: -92px -23px;}
-    #sns_wrap li.item4 a:before { background-position: -127px -23px;}
-
-
-    #main2 { background-image: url("./img/bg1.jpg");}
-    #main3 { background-image: url("./img/bg3.jpg");}
-
-    
-    </style>
+   
 </head>
 <body>
     <nav class="collap">
@@ -174,7 +99,7 @@
     </nav>
     <header class="hd">
         <div class="tnb">
-            <div class="left">
+            <div class="left mo">
                 <ul>
                     <li class="item1"><a href="">처음으로</a></li>
                     <li class="item2"><a href="">로그인</a></li>
@@ -184,7 +109,7 @@
             </div>
             <a href="" class="logo"></a>
             <div class="right">
-                <div class="lang">
+                <div class="lang mo">
                     <button class="this_lang">Language</button>
                     <ul class="lang_lst">
                         <li><a href="">한국어</a></li>
@@ -201,7 +126,7 @@
                 </form>
             </div>
         </div>
-        <nav class="gnb">
+        <nav class="gnb mo">
             <ul class="menu">
                 <li>
                     <a href="" class="dp1">공사소개</a>
@@ -284,10 +209,10 @@
                     <h2>EXPECT EXCEPTIONAL</h2>
                     <p>제2의 도약, 글로벌 리딩공항</p>
                 </div>
-                <div id="main_img">
+                <div id="main_img" class="mo">
                     <a href=""><img src="./img/y.jpg" alt=""></a>
                 </div>
-                <figure id="vs">
+                <figure id="vs" class="mo">
                     <ul class="vs_lst">
                         <li class="item1"><a href=""></a></li>
                         <li class="item2"><a href=""></a></li>
