@@ -26,23 +26,60 @@
     .gnb_wrap { width: 100%; height: 60px;}
     .gnb { width: 100%; height: 100%;}
     .gnb li { float: left; line-height: 2.2; position: relative; width: 14.2857%; }
+    .gnb li:hover .dp2 { display: block;}
+    .gnb li:hover .dp1 { color: mediumorchid;}
     .gnb li a { display: block; font-size: 16px; text-align: center;}
-    .dp1 { font-weight: bold;}
-    .dp2 { display: none; visibility: visible; opacity: 1; transition: 0.5s;}
+    .dp1 { font-weight: bold; padding-bottom: 5px;}
+    .dp2 { display: none; visibility: visible; opacity: 1; transition: 0.5s; position: absolute;z-index: 99; background: #fff; width: 100%;}
     .dp2 li { width: 100%;}
-    .dp2 li a { display: block; font-size: 15px;}
+    .dp2 li a { display: block; font-size: 15px; line-height: 3;}
     #main1, #main2, #main3 { clear: both; width: 100%;}
     #vs { width: 100%; height: auto;}
     .vs_lst { width: 600%; height: 100%;}
     .vs_lst li { width: 16.6666%; height: 100%; float: left; }
     .vs_lst li img {width: 100%; height: 100%;}
     #quick { height: 165px;}
-    #quick li { width: 25%; height: 100%; float: left;}
-    #quick li.it1 { background: url("./img/quick1.png") no-repeat #60e2c9 85% center;}
-    #quick li.it2 { background: url("./img/quick2.png") no-repeat #4dd1f8 85% center;}
-    #quick li.it3 { background: url("./img/quick3.png") no-repeat #dd8353 85% center;}
-    #quick li.it4 { background: url("./img/quick4.png") no-repeat #f0eb71 85% center;}
-        #quick li a { display: block; font-size: 30px; font-weight: bold; text-indent: 3em; margin-top: 0.5em; line-height: 3; color: #fff;}
+    #quick li { width: 25%; height: 100%; float: left;  background-position: 85% center;}
+    #quick li.it4 { background: url("./img/quick4.png") #60e2c9 no-repeat 85% center;}
+    #quick li.it3 { background: url("./img/quick3.png") #4dd1f8 no-repeat 85% center;}
+    #quick li.it1 { background: url("./img/quick1.png") #dd8353 no-repeat;}
+    #quick li.it2 { background: url("./img/quick2.png") #f0eb71 no-repeat;}
+    #quick li a { display: block; font-size: 30px; font-weight: bold; text-indent: 3em; margin-top: 0.5em; line-height: 3; color: #fff;}
+    #main3 { width: 92%;margin: 0 auto; position: relative;}
+    .left { width: 50%; float: left; padding: 0 0 97px; background-color: #dce4ed; }
+    .right {width: 50%; float: right;  padding: 0 0 97px; background-color: #eceee6; }
+    .table_tit { font-size: 30px; font-weight: 500; text-align: center; margin-top: 85px;}
+    #main3 ul { margin-top: 30px;}
+    #main3 li { position: relative; padding: 23px 30px; background-color: #fff; margin: 3px auto; width: 70%;}
+    #main3 li a { display: block;}
+    .top { padding: 0 155px 12px 0;}
+    .top .index {display: block; color: mediumorchid; background-color: #fff; border-color: #dedede; min-width: 100px;margin-bottom: 12px;}
+    .top .date {display: block; position: absolute; top: 23px; right: 30px; color: #a8a8a8; letter-spacing: -0.4px;}
+    .bottom { position: relative; padding: 0 85px 0 0;}
+    .bottom .tit {display: block; font-size: 20px; min-height: 52px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-right: 60px; line-height: 61px;}
+    .bottom .view { display: block; position: absolute; top: 0px; right: -1px; background-color: rgb(182, 126, 196); color: #fff; font-size: 16px; text-align: center;min-width: 80px; padding: 20px  8px;}
+    
+    @media screen and ( max-width: 767px){
+    .mo {display: none;}
+    #quick { height: 200px;}
+    #quick li { width: 50%; height: 50%;}
+    #quick li a {  font-size: 14px; font-weight: 600; text-indent: 1em; }
+    .left { width: 100%; font: left; padding: 0 0 40px;}
+    .right { width: 100%; float: left; padding: 0 0 40px;}
+    .table_tit { font-size: 28px; font-weight: 500; text-align: center; margin-top: 25px;}
+    .top { padding: 0 155px 0px 0; font-size: 13px;}
+    .top .index { margin-bottom: 2px;}
+    .top .date { top: 18px;}
+    .bottom .tit { font-size: 13px; min-height: 30px; margin-right: 10px; line-height: 30px;}
+    .bottom .view {  font-size: 11px; min-width: 50px; padding: 10px 3px;}
+    }
+    @media screen and (min-width:768px) and (max-width:1080px){
+    #quick { height: 120px;}
+    #quick li { background-size: contain;}
+    #quick li a {font-size: 20px; font-weight: 600; text-indent: 2em;}
+    .left { width: 100%;float: left;}
+    .right { width: 100%; float: left;}
+    }
     </style>
 </head>
 <body>
@@ -59,7 +96,7 @@
                 <li class="it2"><a href="">부산점</a></li>
             </ul>
         </div>
-        <div class="gnb_wrap">
+        <div class="gnb_wrap mo">
             <ul class="gnb">
                 <li>
                     <a href="" class="dp1">밝은성모안과</a>
@@ -147,6 +184,7 @@
     </main>
     <main id="main3">
         <div class="left">
+            <h3 class="table_tit">BIG EVENT</h3>
             <ul>
                 <li class="it1"><a href="">
                         <div class="top">
@@ -189,20 +227,21 @@
             </ul>
         </div>
         <div class="right">
+            <h3 class="table_tit">REAL REVIEW</h3>
             <ul>
                 <li class="it1"><a href="">
                         <div class="top">
-                        <span class="index">스타체험기</span>
+                        <span class="date">스타체험기</span>
                         <span class="index">배우 송민경</span>
                         </div>
                         <div class="bottom">
-                        <span class="tit">지금이라도 밝은성모안과를 만나 라섹수술한거에 </span>
+                        <span class="tit">지금이라도 밝은성모안과를 만나 라섹수술한거에 너무 감사하고 만족합니다.</span>
                         <span class="view">상세보기</span>
                         </div>
                     </a></li>
                 <li class="it2"><a href="">
                         <div class="top">
-                        <span class="index">고객체험기</span>
+                        <span class="date">고객체험기</span>
                         <span class="index">김현혜</span>
                         </div>
                         <div class="bottom">
@@ -212,26 +251,45 @@
                     </a></li>
                 <li class="it3"><a href="">
                         <div class="top">
-                        <span class="index">스타체험기</span>
+                        <span class="date">스타체험기</span>
                         <span class="index">스키국가대표 김광진</span>
                         </div>
                         <div class="bottom">
-                        <span class="tit"></span>
+                        <span class="tit">스키 연습할때 편해요. 밝은 성모안과 최고입니다.</span>
                         <span class="view">상세보기</span>
                         </div>
                     </a></li>
                 <li class="it4"><a href="">
                         <div class="top">
-                        <span class="index">스타체험기</span>
+                        <span class="date">스타체험기</span>
                         <span class="index">디셈버 DK</span>
                         </div>
                         <div class="bottom">
-                        <span class="tit"></span>
+                        <span class="tit">더 밝아진 시력으로 편하게 활동하고 대중들에게 좋은 음악 많이 들려주겠습니다.</span>
                         <span class="view">상세보기</span>
                         </div>
                     </a></li>
             </ul>
         </div>
+    </main>
+    <main id="main4">
+        <h3>서비스 바로가기</h3>
+        <ul>
+            <li class="it1"><a href=""><span></span></a></li>
+            <li class="it2"><a href=""><span></span></a></li>
+            <li class="it3"><a href=""><span></span></a></li>
+            <li class="it4"><a href=""><span></span></a></li>
+            <li class="it5"><a href=""><span></span></a></li>
+        </ul>
+    </main>
+    <main id="main5">
+        <h3>팝업존</h3>
+    </main>
+    <main id="main6">
+        <h3>공지사항</h3>
+        <div class="it1"><a href="">FAQ</a></div>
+        <div class="it2"><a href="">자료</a></div>
+        <div class="it3"><a href="">Q&A</a></div>
     </main>
 </body>
 </html>
