@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>contact</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+    <style>
+    
+    .collap {position: fixed; top: 0;right: -155px; z-index: 90; background: #fff; width: 155px; height: 100vh; transition: 0.5s ease-in-out;}
+    .collap.on { right: 0;}
+    .ham { display: block; position: fixed; top: 25px; z-index: 100; animation: open 0.5s ease-in-out forwards;}
+    @keyframes open {
+        0% {right: 155px; }
+        50% {right: 0;}
+        100% { right: 25px; }
+    }
+    .ham span { display: block; width: 30px; height: 5px; margin: 5px auto 0; background: #fff; transition: 0.5s; border-radius: 5px; transform: rotate(0deg);}
+    .ham.active { animation: close 0.5s ease-in-out forwards;}
+    @keyframes close {
+        0% { right: 25px;}
+        50% { right: 0;}
+        100% { right: 155px;}
+    }
+    .ham.active .line1 { transform: rotate(45deg); margin-top: 15x; transform:  rotate(135px);}
+    .ham.active .line2 { opacity: 0;}
+    .ham.active .line3 { transform: rotate(-45deg); margin-top: -15px; transform:  rotate(-135px);}
+    #gnb { text-align: center; margin-top: 100px;}
+    #gnb li a { display: block; color: #333; font-size: 20px; line-height: 3.2;}
+    .container { position: absolute; width: 100%; height: 100%; overflow: hidden;}
+    .container:hover .top:before, .container:hover .top:after, .container:hover .bottom:before, .container:hover .bottom:after {
+         margin-left: 200px; transform-origin: -200px 50%; transition-delay: 0s;}
+    .container:hover .center { opacity: 1; transition-delay: 0.2s;}
+    .top:before, .top:after, .bottom:before, .bottom:after {
+         content: ""; display: block; position: absolute; width: 200vmax; height: 200vmax; top: 50%; left: 50%; margin-top: -100vmax;
+         transform-origin: 0 50%; transition: 0.5s cubic-bezier(0.445, 0.05, 0,1); z-index: 10; transition-delay: 0.2s; opacity: 0.65;
+         }
+    .top:before { transform: rotate(45deg); background: #fbdbd2;}
+    .top:after { transform: rotate(135deg); background: #fbdbd2;}
+    .bottom:before { transform: rotate(-45deg); background: #fbdbd2;}
+    .bottom:after { transform: rotate(-135deg); background: #fbdbd2;}
+    .center { position: absolute; width: 400px; height: 400px; top: 50%; left: 50%; margin-left: -200px; margin-top: -200px; display: flex; flex-direction: column; justify-content: center; padding: 30px; opacity: 0;transition: 0.5s cubic-bezier(0.455,0.05,0,1); transition-delay: 0s; color: #333;}
+    .ab {display: block; position: absolute; z-index: 11; top: 50%; left: calc(50% - 100px); transition: 0.7s;}
+    .ab.on { display: none; }
+    .ban4 { display: block; width: 200px;}
+    .main_title { font-size: 3rem; color: #fff; text-align: center; text-indent: -30px; margin-top: 30px;}
+        .sns li { padding: 0 1em 0 0;}
+        .sns li .i { position: relative;}
+        .sns li .i:before { font-size: 1.5rem;}
+    </style>
+    <script> 
+        // function initialize() {
+        //     var myLatlng = new google.maps.LatLng(36.3079779,127.45823399999995);
+        //     var mapOptions = {
+        //     zoom: 17,
+        //     center: myLatlng
+        //     }
+        //     var map = new google.maps.Map(document.getElementById('map_canvas'), mapOptions);
+        //     var marker = new google.maps.Marker({
+        //         position: myLatlng,
+        //         map: map,
+        //         title: '동구 가오동'	  
+        //     });
+        // }
+        // google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+    <script>
+    $(document).ready(function(){
+        //햄버거 메뉴
+        $(".ham").click(function(){
+            $(this).toggleClass("active");
+            $(".collap").toggleClass("on");
+            // $("#gnb").slideToggle();
+        });
+
+        //연락처 펼침메뉴
+        $(".container").mouseover(function(){
+            $(".ab").addClass("on");
+        });
+        $(".container").mouseleave(function(){
+            $(".ab").removeClass("on");
+        });
+    });
+    </script>
+</head>
+<body>
+    <!-- 햄버거메뉴 -->
+    <nav class="collap">
+        <button type="button" class="ham">
+            <span class="line1"></span>
+            <span class="line2"></span>
+            <span class="line3"></span>
+        </button>
+        <ul id="gnb">
+            <li><a href="">home</a></li>
+            <li><a href="">about</a></li>
+            <li><a href="">skill</a></li>
+            <li><a href="">work</a></li>
+            <li><a href="">contact</a></li>
+        </ul>
+    </nav>
+    <div class="ab">
+        <img class="ban4" src="./img/call.png" alt="">
+        <h2 class="main_title">CONTACT</h2>
+    </div>
+    <div class="container">
+        <div class="top"></div>
+        <div class="bottom"></div>
+        <div class="center">
+            <ul class="sns">
+                <li><a href="" class="i fa-kakao"><span class="my">choeyujin21@gmail.com</span></a></li>
+                <li><a href="" class="i fa-github"><span class="my">dbwls15.github.com</span></a></li>
+                <li><a href="" class="i fa-phone"><span class="my">010-3185-9617</span></a></li>
+                <li><a href="" class="i fa-mail"><span class="my">wlsji4@gmail.com</span></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
