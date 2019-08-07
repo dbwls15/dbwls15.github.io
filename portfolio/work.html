@@ -28,7 +28,7 @@
     .ham.active .line3 { transform: rotate(-45deg); margin-top: -15px; transform:  rotate(-135px);}
     #gnb { text-align: center; margin-top: 100px;}
     #gnb li a { display: block; color: #333; font-size: 20px; line-height: 3.2;}
-    .main {width: 100vw; height: 100vh; background: #6974b6;}
+    .main {width: 100vw; height: 50vh; background: #6974b6;}
     .svg_wrap { text-align: center; padding: 80px 0;}
     .main_title { font-size: 3rem; color: #fff; margin-bottom: 60px; text-align: center;}
 
@@ -45,7 +45,7 @@
     .info strong { }
     .info h2 { }
     .info p { }
-    .ft { padding: 20px; text-align: center; background: #394762;}
+    .ft { clear: both; padding: 20px; text-align: center; background: #394762;}
     .ft span{ color: #fff; font-size: 12px; line-height: 2;}
     .ft .copyright:after { content: ''; width: 1px; height: 10px; margin: -1px 8px; background: #fff; display: inline-block;}
     </style>
@@ -55,7 +55,13 @@
         $(".ham").click(function(){
             $(this).toggleClass("active");
             $(".collap").toggleClass("on");
-            // $("#gnb").slideToggle();
+        });
+        $(window).scroll(function(){
+            if($(this).scrollTop() >= 600) {
+                $(".ham span").css("background","#394762");
+            } else {
+                $(".ham span").css("background","#fff");
+            }
         });
     });
     </script>

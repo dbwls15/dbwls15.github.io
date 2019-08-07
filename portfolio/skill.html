@@ -94,6 +94,14 @@
             $(this).toggleClass("active");
             $(".collap").toggleClass("on");
         });
+        
+        $(window).scroll(function(){
+            if($(this).scrollTop() >= 600) {
+                $(".ham span").css("background","#394762");
+            } else {
+                $(".ham span").css("background","#fff");
+            }
+        });
     });
     </script>
 </head>

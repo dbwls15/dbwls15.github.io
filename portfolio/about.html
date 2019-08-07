@@ -15,7 +15,7 @@
     <style>
     .collap {position: fixed; top: 0;right: -155px; z-index: 90; background: #fff; width: 155px; height: 100vh; transition: 0.5s ease-in-out;}
     .collap.on { right: 0;}
-    .ham { display: block; position: fixed; top: 25px; z-index: 100; animation: open 0.5s ease-in-out forwards;}
+    .ham { display: block; position: fixed; top: 25px; z-index: 100; animation: open 0.5s ease-in-out forwards; }
     @keyframes open {
         0% {right: 155px; }
         50% {right: 0;}
@@ -34,7 +34,7 @@
     #gnb { text-align: center; margin-top: 100px;}
     #gnb li a { display: block; color: #333; font-size: 20px; line-height: 3.2;}
 
-    .main { width: 100vw; height: 100vh; background: #ffde8a;}
+    .main { width: 100vw; height: 100vh; background: #ffd66d;}
     .svg_wrap { text-align: center; padding: 80px 0;}
     .svg1 { animation-name: ani1; animation-duration:2s; animation-iteration-count:infinite; 
     stroke-dasharray:2500; animation-timing-function:ease-in} 
@@ -75,7 +75,8 @@
     #btn_box2 li.left button { background-image:url(""); }
     #btn_box2 li.right button { background-image:url(""); }
     .right { float: left; margin-left: 50px;}
-    .ft { padding: 20px; text-align: center; background: #394762;}
+    .right > div { margin-bottom: 20px;}
+    .ft { clear: both; padding: 20px; text-align: center; background: #394762; }
     .ft span{ color: #fff; font-size: 12px; line-height: 2;}
     .ft .copyright:after { content: ''; width: 1px; height: 10px; margin: -1px 8px; background: #fff; display: inline-block;}
     </style>
