@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-latest.js"></script>
     <style>
-    html, body, .page { width: 100%; height: 100%; margin: 0; padding: 0; transition: all .6s cubic-bezier(.5, .2, .2, 1.1); color: #fff; overflow: hidden; }
-    * { margin: 0; padding: 0;}
+    html, body, .page { width: 100%; height: 100%; margin: 0; padding: 0; transition: all .6s cubic-bezier(.5, .2, .2, 1.1); color: #fff; overflow: hidden; font-family: 'Noto Sans KR', 'Roboto', sans-serif;}
+    * { margin: 0; padding: 0; box-sizing: border-box;}
     ul { list-style: none;}
     a { text-decoration: none;}    
     .page { position: absolute;}
@@ -18,7 +20,7 @@
     #p2 { background: #ffd66d; }
     #p3 { background: #b4dbd2; }
     #p4 { background: #6974b6; }    
-    #p5 { background: #fbdbd2; }
+    #p5 { background: #f5f6f7; }
     #t2:target #p2, #t3:target #p3,#t4:target #p4,#t5:target #p5 { transform: translateX(-190%); transition-delay: .4s !important;}
     #t2:target #p1, #t3:target #p1,#t4:target #p1,#t5:target #p1 { background: black;}
     #t2:target #p1, #t3:target #p1,#t4:target #p1,#t5:target #p1 { filter: blur(3px);}
@@ -34,41 +36,41 @@
         
     /* page1 */
     #p1 .icon { background: #040e3e; height: 100vh;}
-    svg * {	stroke-width: 2; 	stroke-linecap: round; 	stroke-miterlimit: 10;	transform-origin: 50% 50%;	transform-box: fill-box;}
-    .BasicStroke { 	stroke: #8BD6D2; 	fill: transparent;}
-    .BasicFill { 	fill: #040e3e; 	stroke: #8BD6D2;}
+    svg * {	stroke-width: 2; stroke-linecap: round; stroke-miterlimit: 10;transform-origin: 50% 50%;transform-box: fill-box;}
+    .BasicStroke { stroke: #8BD6D2; fill: transparent;}
+    .BasicFill { fill: #040e3e; 	stroke: #8BD6D2;}
     #Moon {  animation: spin 3s linear infinite;}
-    #cn_base_l {	fill: #D7F7F5;	stroke: #040e3e;}
-    #cn_base_r,#lower_deck,#upper_deck {	fill: #75CAC3;	stroke: #040e3e;}
-    #main_deck {	fill: #2A6171;	stroke: #040e3e;}
-    #inner_deck {	fill: #B1FDEB;	stroke: #040e3e;	transition: all .2s ease;}
+    #cn_base_l {fill: #D7F7F5;	stroke: #040e3e;}
+    #cn_base_r,#lower_deck,#upper_deck {fill: #75CAC3;	stroke: #040e3e;}
+    #main_deck {fill: #2A6171;	stroke: #040e3e;}
+    #inner_deck {fill: #B1FDEB;	stroke: #040e3e;	transition: all .2s ease;}
     #inner_deck:hover {	fill: url(#disco-gif);	transform: scale(1.2);	stroke: #B1FDEB;}
     #needle_base_1,#needle_base_2 {	fill: #A9FCFA;	stroke: #040e3e;}
-    #needle {    fill: none;    stroke: #A9FCFA;    stroke-width: 3;}
+    #needle {   fill: none;    stroke: #A9FCFA;    stroke-width: 3;}
     .streetcar_white { 	fill: #FEFEFE; 	stroke: #040e3e;}
-    .streetcar_window {    fill: #1D0444;    stroke: #040e3e;}
-    .streetcar_red {	fill: #ca1a75;    stroke: #040e3e;}
+    .streetcar_window {   fill: #1D0444;    stroke: #040e3e;}
+    .streetcar_red {fill: #ca1a75;    stroke: #040e3e;}
     #Stars * {  stroke: #8BD6D2;}
     #Stars-glow polygon {  fill: white;  filter: url('#glow');  opacity: 0;}
     #Stars-glow polygon.star-glow-show {  opacity: 1;}
     .hide {  opacity: 0;}
     /* Hiding some elements from the beginning to be invisible */
-    #Streetcar,#Waves-I path{	opacity: 0;}
+    #Streetcar,#Waves-I path{opacity: 0;}
     @keyframes spin {
-      0% {		transform: rotate(360deg) scale(1);	}
-      50% {    transform: rotate(360deg) scale(1.1);  }
-      100% {		transform: rotate(720deg) scale(1);	}
+      0% {	transform: rotate(360deg) scale(1);	}
+      50% {   transform: rotate(360deg) scale(1.1);  }
+      100% {transform: rotate(720deg) scale(1);	}
     }
     /* CSS Animations for Streecar */
     @keyframes streetcar {
-      0% {		transform: translate(50vw);		opacity: 0;	}
-      10% {		opacity: 0;	}
-      20% {		opacity: 1;	}
-      30% {		transform: translate(-10vw);		opacity: 1;	}
-      70% {		transform: translate(-10vw);		opacity: 1;	}
-      80% {		opacity: 1;	}
-      90% {		opacity: 1;	}
-      100% {		transform: translate(-100vw);		opacity: 0;	}
+      0% {	transform: translate(50vw);	opacity: 0;	}
+      10% {	opacity: 0;	}
+      20% {	opacity: 1;	}
+      30% {	transform: translate(-10vw);opacity: 1;	}
+      70% {	transform: translate(-10vw);opacity: 1;	}
+      80% {	opacity: 1;	}
+      90% {	opacity: 1;	}
+      100% {transform: translate(-100vw);opacity: 0;}
     }
     .streetcar-animation {	animation: streetcar 6s ease-in-out infinite;}
     /*page2*/
@@ -98,7 +100,40 @@
     .right > div h3 {margin-bottom: 5px;font-size: 1.2em;}
     .right > div h3:before {color: #fff; content: "＃"; }
     /* page3 */
-    .ability { position: relative; margin-bottom: 40px; padding-top: 70px;}
+    .skill { clear: both; margin-top: 40px; width: 35%; float: left; margin-left: 63px;}
+    .skill_r { float: right;width: 50%;}
+    .skill_l { float: left; clear: both; width: 50%;}
+    .skill .chart {position: relative; width: 200; height: 250px;}
+    .skill svg {width: 200px; height: 250px; clear: both; display: block;position: relative;}
+    .progress .track, .progress .fill {fill: rgba(0, 0, 0, 0); stroke-width: 30; stroke-linecap: round; }
+     transform: translate(290px, 800px)rotate(-120deg);
+    .progress .track { stroke: rgba(255,255,255,0.4); position: relative; }
+    .progress .fill { stroke: #8970a5; position: absolute; stroke-dasharray: 2200; stroke-dashoffset: 2200; animation-duration:4s; animation-fill-mode: both;}
+    #per1 { animation-name: ch1;}
+    @keyframes ch1 {
+        0% { stroke-dashoffset: 2200;}
+        100% { stroke-dashoffset: 110;}
+    }
+    #per2 { animation-name: ch2;}
+    @keyframes ch2 {
+        0% { stroke-dashoffset: 2200;}
+        100% { stroke-dashoffset: 0;}
+    }
+    #per3 { animation-name: ch3;}
+    @keyframes ch3 {
+        0% { stroke-dashoffset: 2200;}
+        100% { stroke-dashoffset: 330;}
+    }
+    #per4 { animation-name: ch4;}
+    @keyframes ch4 {
+        0% { stroke-dashoffset: 2200;}
+        100% { stroke-dashoffset: 220;}
+    }
+    
+    .progress .value, .progress .text {text-anchor: middle;}
+    .value {font-size: 8rem;}
+    .text {font-size: 5rem; font-weight: 600;}
+    .ability { position: relative; padding-top: 70px; width: 60%; float: right;}
     .ability ul:before { display: block; position: absolute; left: 50%; top: 138px; bottom: 18px; width: 2px; margin-left: -1px; background: #fff; content:" ";}
     .sub_title { display: block; margin-bottom: 40px; color: #2f2e77; text-align: center; font-weight: 700; font-size: 32px; line-height: 24px;}
     .ability li { position: relative; min-height: 150px; margin-bottom: 15px; }
@@ -125,51 +160,40 @@
     .info strong { width: 100%; position: absolute; top: 22%;left: 0; font-size: 17px; font-weight: 300; margin-bottom: 40px; line-height: 23px;}
     .info h2 { width: 100%; position: absolute; top: 45%; font-size: 30px; font-weight: 600;text-transform: uppercase;}
     .info p { width: 100%; position: absolute; top: 60%; font-size: 17px; font-weight: 300; margin-bottom: 40px; line-height: 23px;}
-        
+    /* page 5 */
+    .contact_wrap { text-align: center; padding: 6em 0; width: 1200px;margin: 0 auto;}
+    #p5 header { margin-bottom: 2em; color: #000;}
+    #p5 header h2 { font-size: 2.25em; line-height: 1.25em; font-weight: 800;}
+    #p5 header p { display: block; margin: 1em 0;}
+    .contact_box { background: #fff; color: #39454b; padding: 2em;}
+    .contact_box .first { padding: 0 0 0.75em 0;}
+    .contact_box .half { width: 50%; float: left; padding-right: 0.75em;}
+    .contact_box .field { margin: 0 0 1.5em 0;}
+    input[type="text"], input[type="email"] {line-height: 1.35em;}
+    input[type="text"],input[type="email"],textarea { display: block; width: 100%; padding: 0.65em 0.75em; background: none; border: 2px solid #e5e6e7; border-radius: 0.5em; outline: 0; color: #666;}
+    textarea { min-height: 8em;}
+    .actions { margin: 1.5em 0 0 0;}
+    input[type="submit"] {background-color: #98c593; border: 0; border-radius: 3.5em; color: #fff; display: inline-block; height: 3.5em; line-height: 3.5em; padding: 0 2em 0 2em; text-align: center;}
 </style>
 <script id="rendered-js">
 $(document).ready(function(){
  // Create a new timeline instance
-var tl = new TimelineMax({  delay: 1});
+var tl = new TimelineMax({ delay: 1});
 // Start sequencing...
 // Reveal
 tl
-  .to(".reveal", 1, {    y: "100%",    opacity: 0  })
+  .to(".reveal", 1, { y: "100%", opacity: 0  })
   // Animate the Stars & Moon with .staggerFrom and .from
-  .staggerFrom(    "#Stars polygon",    0.5, {  opacity: 0,  y: -10, rotation: "80deg",transformOrigin: "50% 50%"    }, 0.1
-  )  .from(    "#Moon",    0.5, {  opacity: 0,   y: -10,  transformOrigin: "50% 50%" },"-=1"
-  )  .staggerFrom(".bg-building", 1, { opacity: 0, y: 30, scale: 0.6, transformOrigin: "50% 50%", ease: Elastic.easeOut.config(1, 0.3), y: -500 },0.1, "-=1" )
-  .from(    "#Baseline",    2, {
-      drawSVG: "50% 50%", // middle of the stroke, out
-      x: 50,      ease: Elastic.easeOut.config(1, 0.3)    },    "-=1"  )
-  .from(    "#OldCityHall .BasicFill",    0.5, {      drawSVG: "0",      fill: "transparent"    },    "-=1"
-  )
-  .from(
-    ".CityHallBody",
-    0.3, {
-      drawSVG: "0",
-      fill: "transparent"
-    },
-    "-=1"
-  )
-  .from(
-    "#CityHallL .BasicStroke",
-    0.3, {
-      drawSVG: "0"
-    },
-    "-=0.3"
-  )
-  .from(
-    "#CityHallR .BasicStroke",
-    0.3, {
-      drawSVG: "0"
-    },
-    "-=0.3"
-  )
-  .staggerFrom(
-    "#ROM polygon",
-    0.5, {
-      drawSVG: "0",
+  .staggerFrom( "#Stars polygon", 0.5,{opacity: 0, y: -10, rotation: "80deg",transformOrigin: "50% 50%"}, 0.1
+  )  .from(  "#Moon", 0.5, { opacity: 0, y: -10,transformOrigin: "50% 50%"},"-=1"
+  )  .staggerFrom(".bg-building", 1, { opacity: 0, y: 30, scale: 0.6, transformOrigin: "50% 50%", ease: Elastic.easeOut.config(1, 0.3), y: -500 },0.1, "-=1")
+  .from( "#Baseline",  2, {drawSVG: "50% 50%", // middle of the stroke, out
+    x: 50,  ease: Elastic.easeOut.config(1, 0.3) },"-=1" )
+  .from( "#OldCityHall .BasicFill", 0.5, { drawSVG: "0", fill: "transparent" }, "-=1" )
+  .from( ".CityHallBody", 0.3, { drawSVG: "0", fill: "transparent" }, "-=1")
+  .from( "#CityHallL .BasicStroke", 0.3, { drawSVG: "0" }, "-=0.3")
+  .from( "#CityHallR .BasicStroke", 0.3, { drawSVG: "0" }, "-=0.3")
+  .staggerFrom( "#ROM polygon",0.5, {  drawSVG: "0",
       fill: "transparent"
     },
     0.1, // stagger value
@@ -178,80 +202,20 @@ tl
   .from('#RogersCentre .BasicFill', .5, {drawSVG: '0', fill: 'transparent'}, '-=.5')
   .from(    "#needle",    0.3, {      drawSVG: "0"    },    "-=0.3"  )
 .from(".cn-tower", 1, {    opacity: 0  }, "-=1")
-// .staggerFrom(
-  //   ".cn-tower",
-  //   1, {
-  //     drawSVG: "0",
-  //     fill: "transparent",
-  //     stroke: "#a9fcfa"
-  //   },
-  //   0.1,
-  //   "-=0.3"
-  // )
-  .from("#Clouds", 1, {
-    opacity: 0
-  }, "-=1")
-  .to("#Cloud_1", 4, {
-    x: 40,
-    repeat: -1,
-    yoyo: true
-  }, "-=4")
-  .to("#Cloud_2", 4, {
-    x: -40,
-    repeat: -1,
-    yoyo: true
-  }, "-=4")
+.from("#Clouds", 1, {opacity: 0  }, "-=1")
+.to("#Cloud_1", 4, { x: 40, repeat: -1, yoyo: true}, "-=4")
+.to("#Cloud_2", 4, {  x: -40,repeat: -1, yoyo: true}, "-=4")
 // addLabel('Waves')
-.from("#Waves", 0.3, {
-    opacity: 0,
-    y: -10
-  }, "-=1")
-  .to(
-    "#wave_1",
-    1, {
-      morphSVG: "#wave_i_1",
-      x: 20,
-      repeat: -1,
-      yoyo: true
-    },
-    "-=1"
-  )
-  .to(
-    "#wave_2",
-    1, {
-      morphSVG: "#wave_i_2",
-      x: -20,
-      repeat: -1,
-      yoyo: true
-    },
-    "-=1"
-  )
-  .to(
-    "#wave_3",
-    1, {
-      morphSVG: "#wave_i_3",
-      x: 20,
-      repeat: -1,
-      yoyo: true
-    },
-    "-=1"
-  )
-  .to(
-    "#wave_4",
-    1, {
-      morphSVG: "#wave_i_4",
-      x: -20,
-      repeat: -1,
-      yoyo: true
-    },
-    "-=1"
-  )
-  .from('#Hello', 2, { drawSVG: '0'}, "-=0.3")
-  .from('#Toronto_1', .5, { drawSVG: '0'}, "-=0.3")
-  .from('#Toronto_2', 5, { drawSVG: '0'}, "-=0.3")
-  .from('#Toronto_3', .5, { drawSVG: '0'}, "-=0.3")
-  .to("#Streetcar", 1, { className: '+=streetcar-animation'})
-});
+.from("#Waves", 0.3, { opacity: 0, y: -10 }, "-=1")
+.to( "#wave_1",1, { morphSVG: "#wave_i_1",x: 20, repeat: -1,yoyo: true},"-=1" )
+.to("#wave_2",1, { morphSVG: "#wave_i_2", x: -20, repeat: -1,yoyo: true},"-=1" )
+ .to("#wave_3", 1, {morphSVG: "#wave_i_3",x: 20, repeat: -1, yoyo: true }, "-=1")
+ .to("#wave_4", 1, {morphSVG: "#wave_i_4", x: -20, repeat: -1, yoyo: true },"-=1")
+ .from('#Hello', 2, { drawSVG: '0'}, "-=0.3")
+ .from('#Toronto_1', .5, { drawSVG: '0'}, "-=0.3")
+ .from('#Toronto_2', 5, { drawSVG: '0'}, "-=0.3")
+ .from('#Toronto_3', .5, { drawSVG: '0'}, "-=0.3")
+ .to("#Streetcar", 1, { className: '+=streetcar-animation'})});
 </script>
 <body>
 <div class="ct" id="t1">
@@ -568,7 +532,62 @@ tl
           </div>  
           <div class="page" id="p3">
             <section class="icon">
-<div class="ability">
+            <div class="skill">
+            <h3 class="sub_title">SKILL</h3>
+            <div class="skill_l">
+            <div class="chart">
+                <svg class="progress green noselect" data-progress="96" viewBox="0 0 776 628">
+                    <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <path class="fill" id="per1" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <text class="value" x="50%" y="61%">95%</text>
+                    <text class="text" x="50%" y="122%">적극성</text>
+                </svg>
+            </div>
+            <div class="chart">
+                <svg class="progress green noselect" data-progress="98" viewBox="0 0 776 628">
+                    <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <path class="fill" id="per4" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <text class="value" x="50%" y="61%">90%</text>
+                    <text class="text" x="50%" y="122%">책임감</text>
+                </svg>
+            </div>
+            <div class="chart">
+                <svg class="progress green noselect" data-progress="100"  viewBox="0 0 776 628">
+                    <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <path class="fill" id="per2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <text class="value" x="50%" y="61%">100%</text>
+                    <text class="text" x="50%" y="122%">정직성</text>
+                </svg>
+            </div>
+            </div>
+            <div class="skill_r">
+            <div class="chart">
+                <svg class="progress green noselect" data-progress="100" viewBox="0 0 776 628">
+                    <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <path class="fill" id="per2" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <text class="value" x="50%" y="61%">100%</text>
+                    <text class="text" x="50%" y="122%">분석적</text>
+                </svg>
+            </div>
+            <div class="chart">
+                <svg class="progress green noselect" data-progress="90" viewBox="0 0 776 628">
+                    <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <path class="fill" id="per3" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <text class="value" x="50%" y="61%">85%</text>
+                    <text class="text" x="50%" y="122%">창의성</text>
+                </svg>
+            </div>
+            <div class="chart">
+                <svg class="progress green noselect" data-progress="94"viewBox="0 0 776 628">
+                    <path class="track" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <path class="fill" id="per4" d="M723 314L543 625.77 183 625.77 3 314 183 2.23 543 2.23 723 314z"></path>
+                    <text class="value" x="50%" y="61%">90%</text>
+                    <text class="text" x="50%" y="122%">사교성</text>
+                </svg>
+            </div>
+            </div>
+        </div>
+            <div class="ability">
             <h3 class="sub_title">ABILITY</h3>
             <ul>
                 <li>
@@ -629,7 +648,7 @@ tl
             <section class="icon">
             <div class="gal_wrap">
             <article class="box">
-                <a href="">
+                <a href="https://dbwls15.github.io/r1/">
                     <figure class="img_wrap"><img src="./img/work1.jpg" alt="" ></figure>
                     <figcaption class="info">
                         <strong>UI/UX 반응형</strong>
@@ -640,8 +659,8 @@ tl
             </article>
 
             <article class="box">
-                <a href="">
-                    <figure class="img_wrap"><img src="./img/work2.png" alt=""></figure>
+                <a href="https://dbwls15.github.io/r6/">
+                    <figure class="img_wrap"><img src="./img/work6.png" alt=""></figure>
                     <figcaption class="info">
                         <strong>UI/UX 반응형</strong>
                         <h2>KAKAO PAY</h2>
@@ -651,7 +670,7 @@ tl
             </article>
 
             <article class="box">
-                <a href="">
+                <a href="https://dbwls15.github.io/r8/">
                     <figure class="img_wrap"><img src="./img/work8.jpg" alt=""></figure>
                     <figcaption class="info">
                         <strong>BULMA 프레임워크</strong>
@@ -662,7 +681,7 @@ tl
             </article>
 
             <article class="box">
-                <a href="">
+                <a href="https://dbwls15.github.io/r5/">
                     <figure class="img_wrap"><img src="./img/work5.jpg" alt=""></figure>
                     <figcaption class="info">
                         <strong>UI/UX 반응형</strong>
@@ -673,8 +692,30 @@ tl
             </article>
 
             <article class="box">
-                <a href="">
-                    <figure class="img_wrap"><img src="./img/work1.png" alt=""></figure>
+                <a href="https://dbwls15.github.io/r7/">
+                    <figure class="img_wrap"><img src="./img/work7.jpg" alt=""></figure>
+                    <figcaption class="info">
+                        <strong>UI/UX 반응형</strong>
+                        <h2>밝은 성모안과</h2>
+                        <p>기획/디자인/개발 참여도 100%</p>
+                    </figcaption>
+                </a>
+            </article>
+
+            <article class="box">
+                <a href="https://dbwls15.github.io/r4/">
+                    <figure class="img_wrap"><img src="./img/work4.jpg" alt=""></figure>
+                    <figcaption class="info">
+                        <strong>UI/UX 반응형</strong>
+                        <h2>SK7 MOBILE</h2>
+                        <p>기획/디자인/개발 참여도 100%</p>
+                    </figcaption>
+                </a>
+            </article>
+
+            <article class="box">
+                <a href="https://dbwls15.github.io/r7/">
+                    <figure class="img_wrap"><img src="./img/work7.jpg" alt=""></figure>
                     <figcaption class="info">
                         <strong>UI/UX 반응형</strong>
                         <h2></h2>
@@ -684,7 +725,7 @@ tl
             </article>
 
             <article class="box">
-                <a href="">
+                <a href="https://dbwls15.github.io/r2/">
                     <figure class="img_wrap"><img src="./img/work2.jpg" alt=""></figure>
                     <figcaption class="info">
                         <strong>UI/UX 반응형</strong>
@@ -693,34 +734,12 @@ tl
                     </figcaption>
                 </a>
             </article>
-
             <article class="box">
                 <a href="">
-                    <figure class="img_wrap"><img src="./img/work8.jpg" alt=""></figure>
+                    <figure class="img_wrap"><img src="./img/work12.jpg" alt=""></figure>
                     <figcaption class="info">
-                        <strong>UI/UX 반응형</strong>
-                        <h2></h2>
-                        <p>기획/디자인/개발 참여도 100%</p>
-                    </figcaption>
-                </a>
-            </article>
-
-            <article class="box">
-                <a href="">
-                    <figure class="img_wrap"><img src="./img/work5.png" alt=""></figure>
-                    <figcaption class="info">
-                        <strong>UI/UX 반응형</strong>
-                        <h2></h2>
-                        <p>기획/디자인/개발 참여도 100%</p>
-                    </figcaption>
-                </a>
-            </article>
-            <article class="box">
-                <a href="">
-                    <figure class="img_wrap"><img src="./img/work1.jpg" alt=""></figure>
-                    <figcaption class="info">
-                        <strong>UI/UX 반응형</strong>
-                        <h2></h2>
+                        <strong>jQuery Mobile</strong>
+                        <h2>라오스 여행하기</h2>
                         <p>기획/디자인/개발 참여도 100%</p>
                     </figcaption>
                 </a>
@@ -730,13 +749,35 @@ tl
           </div> 
           <div class="page" id="p5">
             <section class="icon">
-              dd
+              <div class="contact_wrap">
+                  <header>
+                      <h2>최유진에게 연락하기</h2>
+                      <p>감사합니다.</p>
+                  </header>
+                  <div class="contact_box">
+                      <form action="#" method="post">
+                          <div class="field half">
+                              <input type="text" name="name" placeholder="Name">
+                          </div>
+                              <div class="field half">
+                          <input type="email" name="email" placeholder="Email">
+                          </div>
+                          <div class="field">
+                              <textarea name="message" placeholder="Message" rows="6"></textarea>
+                          </div>
+                          <ul class="action">
+                              <li><input type="submit" value="Send Message"></li>
+                          </ul>
+                      </form>
+                  </div>
+                </div>
             </section>
-          </div> 
+            </div> 
+          </div>
         </div>
       </div>
     </div>
-  </div>
 </div>
+    </div>
 </body>
 </html>
