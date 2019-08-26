@@ -1,10 +1,23 @@
 @charset "utf-8";
+.collap { position: fixed; width: 100%; height: 100%; top: 90px; right: -200%; padding-top: 0;}
+.collap.on { right: 0;}
+
+.mo {display: none;}
+.frm1 { position: absolute; top: 90px; left: 10px;z-index: 2;}
+
+#main_tit { width: 50%; margin-top: 40px; }
+#main_tit h2 { font-size: 45px; color: #fff; }
+#main_tit p { font-size: 23px; color: #fff;}
+
 .main {background-position: center center; background-repeat: no-repeat; background-size: cover;
     width: 100%; height: 100%; overflow: hidden;}
    .main_wrap { width: 92%; margin: 0 auto; height: 100%;}
    #main1 {  background-image: url("../img/in4.jpg"); }
    .con_wrap { clear: both; width: 100%; box-sizing: border-box; padding-top: 226px; padding-bottom: 80px;}
    #info_wrap:before{ width: 100%; height: 1px; background-color: #fff; content: ""; opacity: 0.3; position: absolute; top: 42px; left: 0;}
+   #main_tit { float: left; width: 25%; margin-top: 40px; }
+   #main_tit h2 { font-size: 45px; color: #fff; }
+   #main_tit p { font-size: 23px; color: #fff;}
    #main_img {width: 40%; height: 100%; height: 400px; float: left; margin-left: 2.5%;}
    #main_img a img { width: 100%; height: 100%;}
    #vs { width: 30%; height: 233px; float: right; overflow: hidden;margin-top: 50px;}
@@ -15,22 +28,22 @@
    #info_wrap { width: 885px; margin-top: 160px; float: left; position: relative;}
    #info_wrap h3 { font-size: 20px; line-height: 26px; color: #f49a25;margin-bottom: 6px; position: relative;}
    #info_wrap ul { width: 885px; }
-   #info_wrap ul li { width: 100%; float: left; padding: 24px 10px 0px 45px; box-sizing: border-box; position: relative;}
+   #info_wrap ul li { width: 33.33%; float: left; padding: 24px 10px 0px 45px; box-sizing: border-box; position: relative;}
    #info_wrap ul li a span { display: block; width: 100%; font-size: 16px; line-height: 18px; color: #fff;
    text-overflow: ellipsis; overflow: hidden; white-space: nowrap;}
    #info_wrap h3:before { width: 12px; height: 12px; background-color: #f49a25; content: ""; border-radius: 6px;
     position: absolute;left: 0;bottom: -22px;}
    #info_wrap a:before { width: 6px; height: 6px; background: #fff; content: ""; border-radius: 3px;
     position: absolute; left: 45px;top: 7px;}
-   #sns_wrap { width: 610px; margin-top: 160px; float: none; position: relative;}
+   #sns_wrap { width: 610px; margin-top: 160px; float: right; position: relative;}
    #sns_wrap:before{ width: 100%; height: 1px; background-color: #fff; content: ""; opacity: 0.3; position: absolute; top: 42px; left: 0;}
    #sns_wrap h3 { font-size: 20px; line-height: 26px; color: #f49a25; clear: both; margin-bottom: 6px; position: relative;}
    #sns_wrap ul { width: 100%;}
-   #sns_wrap ul li { width: 25%; float: left; padding: 24px 0px 0px 20px; box-sizing: border-box; position: relative;}
+   #sns_wrap ul li { width: 25%; float: left; padding: 24px 10px 0px 70px; box-sizing: border-box; position: relative;}
    #sns_wrap ul li a { display: block; color: #fff; font-size: 16px; line-height: 18px;}
    #sns_wrap h3:before { width: 12px; height: 12px; background-color: #f49a25; border-radius: 6px; content: "";
     position: absolute; left: 0; bottom: -22px;}
-   #sns_wrap li a:before { width: 36px; height: 36px; background: url("../img/icons.png") no-repeat; content: ""; position: absolute; left: 30px; top: -5px;}
+   #sns_wrap li a:before { width: 36px; height: 36px; background: url("../img/icons.png") no-repeat; content: ""; position: absolute; left: 80px; top: -5px;}
    #sns_wrap li.item1 a:before { background-position: -23px -23px;}
    #sns_wrap li.item2 a:before { background-position: -58px -23px;}
    #sns_wrap li.item3 a:before { background-position: -92px -23px;}
@@ -39,15 +52,3 @@
 
    #main2 { background-image: url("../img/bg1.jpg");}
    #main3 { background-image: url("../img/bg3.jpg");}
-
-.collap { position: fixed; width: 100%; height: 100%; top: 90px; right: -200%; padding-top: 0;}
-.collap.on { right: 0;}
-
-.mo {display: none;}
-.frm1 { position: absolute; top: 90px; left: 10px;z-index: 2;}
-
-#main_tit { float: left; width: 60%; margin-top: 40px; }
-#main_tit h2 { font-size: 45px; color: #fff; }
-#main_tit p { font-size: 23px; color: #fff;}
-
-.logo  {width: 200px; height: 40px; position: absolute; top: 20px; left: calc(50% - 150px); background-repeat: no-repeat;}
