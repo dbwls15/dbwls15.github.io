@@ -8,21 +8,24 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta name="robots" content="noindex, nofollow">
     <title>반응형3</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
     <style>
     *{margin: 0; padding: 0;}
-    body, html { width: 100%; height: 100%;}
+    body, html { width: 100%; height: 100%; -ms-overflow-style: none;}
+    ::-webkit-scrollbar { display: none;}
     ul { list-style: none;}
     a { text-decoration: none; color: inherit;}
     .hd { clear: both; width: 100%;}
     .wrap { width: 92%; margin: 0 auto;}
     .tnb_wrap { width: 100%;height: 40px;}
-    .tnb { float: left;}
+    .tnb { position: absolute; top: 13px; right: 110px;}
     .tnb li { float: left; margin-right: 10px;}
     .tnb li a { display: block; font-size: 12px;}
-    .logo {display: block; width: 195px; height: 37px; float: left;}
+    .logo {display: block; width: 195px; height: 37px; float: left; margin-left: 55px;}
     .shop { float: left;}
-    .shop li { float: left; margin-left: 7px;}
-    .shop li a { font-size: 13px;}
+    .shop li { float: left; margin-left: 7px; padding-top: 8px;}
+    .shop li a { font-size: 12px; color: #333;}
+    .shop li.on {font-weight: 800; color: #000;}
     .gnb_wrap { width: 100%; height: 60px;}
     .gnb { width: 100%; height: 100%;}
     .gnb li { float: left; line-height: 2.2; position: relative; width: 14.2857%; }
@@ -40,8 +43,8 @@
     .vs_lst li img {width: 100%; height: 100%;}
     #quick { height: 165px;}
     #quick li { width: 25%; height: 100%; float: left;  background-position: 85% center;}
-    #quick li.it4 { background: url("./img/quick4.png") #60e2c9 no-repeat 85% center;}
-    #quick li.it3 { background: url("./img/quick3.png") #4dd1f8 no-repeat 85% center;}
+    #quick li.it4 { background: url("./img/quick4.png") #60e2c9 no-repeat; }
+    #quick li.it3 { background: url("./img/quick3.png") #4dd1f8 no-repeat; }
     #quick li.it1 { background: url("./img/quick1.png") #dd8353 no-repeat;}
     #quick li.it2 { background: url("./img/quick2.png") #f0eb71 no-repeat;}
     #quick li a { display: block; font-size: 30px; font-weight: bold; text-indent: 3em; margin-top: 0.5em; line-height: 3; color: #fff;}
@@ -59,6 +62,16 @@
     .bottom .tit {display: block; font-size: 20px; min-height: 52px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; margin-right: 60px; line-height: 61px;}
     .bottom .view { display: block; position: absolute; top: 0px; right: -1px; background-color: rgb(182, 126, 196); color: #fff; font-size: 16px; text-align: center;min-width: 80px; padding: 20px  8px;}
     
+    .mainBg {width: 1200px; margin: 0 auto; position: relative; }
+    .ban { width: 339px; float: left; position: relative; border-left: 1px solid #e2e2e2; padding: 0 29px 0; height: 525px;}
+    .ban h3 { text-align: center; font-size: 23px; font-weight: 500; padding: 71px 0 32px;}
+    #main4 li { float: left; width: 50%; margin: 10px 0;}
+    #vs2 { position: relative; width: 300px; margin: 0 auto; overflow: hidden;}
+    .vs2_lst { width: 400%;}
+    .vs2_lst li { float: left; width: 25%;position: relative;}
+    .vs2_lst li img { width: 300px;}
+    #main6 li {float: left; width: 25%;}
+    #main6 li img { display: block; }
     @media screen and ( max-width: 767px){
     .mo {display: none;}
     #quick { height: 200px;}
@@ -80,7 +93,20 @@
     .left { width: 100%;float: left;}
     .right { width: 100%; float: left;}
     }
+
     </style>
+    <script>
+    $(document).ready(function(){
+        var wd = $(window).width();
+        function nextAni(){
+            $(".vs_lst").not(":animated").animate({"margin-left":-wd+"px"}, 700, function(){
+                $(".vs_lst li").eq(0).appendTo($(".vs_lst"));
+                $(".vs_lst").css({"margin-left":"0px"});
+            });
+        }
+        setInterval(function(){nextAni();}, 3000);
+    });
+    </script>
 </head>
 <body>
     <header class="hd">
@@ -92,7 +118,7 @@
         </ul>
         <a href="" class="logo"><img src="./img/h_logo.gif" alt="로고"></a>
             <ul class="shop">
-                <li class="it1"><a href="">강남점</a></li>
+                <li class="it1 on"><a href="">강남점</a></li>
                 <li class="it2"><a href="">부산점</a></li>
             </ul>
         </div>
@@ -272,24 +298,37 @@
             </ul>
         </div>
     </main>
-    <main id="main4">
-        <h3>서비스 바로가기</h3>
-        <ul>
-            <li class="it1"><a href=""><span></span></a></li>
-            <li class="it2"><a href=""><span></span></a></li>
-            <li class="it3"><a href=""><span></span></a></li>
-            <li class="it4"><a href=""><span></span></a></li>
-            <li class="it5"><a href=""><span></span></a></li>
-        </ul>
-    </main>
-    <main id="main5">
-        <h3>팝업존</h3>
-    </main>
-    <main id="main6">
-        <h3>공지사항</h3>
-        <div class="it1"><a href="">FAQ</a></div>
-        <div class="it2"><a href="">자료</a></div>
-        <div class="it3"><a href="">Q&A</a></div>
-    </main>
+    <div class="mainBg">
+            <main id="main4" class="ban">
+                <h3>서비스 바로가기</h3>
+                <ul>
+                    <li class="it1"><a href=""><img src="./img/leftban1.jpg" alt=""></a></li>
+                    <li class="it2"><a href=""><img src="./img/leftban2.jpg" alt=""></a></li>
+                    <li class="it3"><a href=""><img src="./img/leftban3.jpg" alt=""></a></li>
+                    <li class="it3"><a href=""><img src="./img/leftban4.jpg" alt=""></a></li>
+                </ul>
+            </main>
+            <main id="main5" class="ban">
+                <h3>팝업존</h3>
+                <figure id="vs2">
+                    <ul class="vs2_lst">
+                        <li><img src="./img/tool1.jpg" alt=""></li>
+                        <li><img src="./img/tool2.jpg" alt=""></li>
+                        <li><img src="./img/tool3.jpg" alt=""></li>
+                        <li><img src="./img/tool4.jpg" alt=""></li>
+                    </ul>
+                </figure>
+                
+            </main>
+            <main id="main6" class="ban">
+                <h3>SNS</h3>
+                <ul>
+                    <li><img src="./img/fsns_1.gif" alt=""></li>
+                    <li><img src="./img/fsns_3.gif" alt=""></li>
+                    <li><img src="./img/fsns_4.gif" alt=""></li>
+                    <li><img src="./img/fsns_5.gif" alt=""></li>
+                </ul>
+            </main>
+    </div>
 </body>
 </html>
