@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>구글지도 API를 이용하여 탭으로 구현하기</title>
+<style>
+* { margin: 0; padding:0; }
+body, html { width: 100%;}
+ul { list-style: none; }
+a { text-decoration:none; }
+button { background-image:none; background-color:transparent; border:0; outline:0; }
+#map_canvas { margin-bottom:40px; }
+#contact p { text-align:left;	padding-left:30px; line-height:30px; margin-top:25px;
+	padding-right:25px; }
+</style>
+<!--여기부터 -->
+<script src="https://maps.googleapis.com/maps/api/js?sensor=true"></script> 
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=발급받은api키"></script> -->
+<!--  https://cloud.google.com/maps-platform/ 에서 개발 api키 발급받으세요 -->
+<script> 
+//좌표 값을 바꿔서 입력 36.3491563,127.3776857
+function initialize() {
+  var myLatlng1 = new google.maps.LatLng(37.5007689,127.02683530000002);
+  var myLatlng2 = new google.maps.LatLng(36.3491563,127.3776857);
+  var myLatlng3 = new google.maps.LatLng(35.1541865,129.0595085);
+  var myLatlng4 = new google.maps.LatLng(35.1507683,126.84887809999998);
+  var mapOptions1 = { zoom: 17, center: myLatlng1 }
+  var mapOptions2 = { zoom: 17, center: myLatlng2 }
+  var mapOptions3 = { zoom: 17, center: myLatlng3 }
+  var mapOptions4 = { zoom: 17, center: myLatlng4 }
+  var map1 = new google.maps.Map(document.getElementById('map_canvas1'), mapOptions1);
+  var map2 = new google.maps.Map(document.getElementById('map_canvas2'), mapOptions2);
+  var map3 = new google.maps.Map(document.getElementById('map_canvas3'), mapOptions3);
+  var map4 = new google.maps.Map(document.getElementById('map_canvas4'), mapOptions4);
+  var marker1 = new google.maps.Marker({ position: myLatlng1, map: map1,
+      title: '그린컴퓨터학원 본사'	
+  });
+  var marker2 = new google.maps.Marker({ position: myLatlng2, map: map2,
+      title: '대전그린컴퓨터아트학원'
+  });
+  var marker3 = new google.maps.Marker({ position: myLatlng3, map: map3,
+      title: '부산그린컴퓨터아트학원'
+  });
+  var marker4 = new google.maps.Marker({ position: myLatlng4, map: map4,
+      title: '광주그린컴퓨터아트학원'
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
+ </script>
+ <!-- 여기까지를 head태그 닫기 전에 복사해서 붙여넣기 -->
+ <style>
+ .sub_title1 { line-height:5; width: 1020px; margin:0 auto; }
+ #map_tab { width: 1020px; min-width:1020px; min-width:height 700px; margin:1em auto; overflow:hidden; }    
+ .map_tab_btn_box { width:100%; clear:both; }
+ .map_tab_btn_box li { width:100px; height: 40px; line-height:40px; cursor:pointer; font-size:14px; color:#fff; background:#666; float:left; text-align:center;  }
+ .map_tab_btn_box li button { color:#fff; cursor:pointer; font-weight:bold; }
+ .map_tab_btn_box li.on { background:#222; }
+ .map_tab_frame { clear:both; position:relative; }
+ .map_tab_frame .map_box { display:none; }
+ .map_title { line-height: 3rem; padding-top: 2rem;  }
+ </style>
+ <script src="https://code.jquery.com/jquery-latest.js"></script>
+<script>
+$(document).ready(function(){
+    $(".map_tab_frame .map_box").eq(0).css("display", "block");
+    $(".map_tab_btn_box li").click(function(){
+        var order = $(this).index();
+        $(".map_tab_btn_box li").removeClass("on");
+        $(this).addClass("on");
+        $(".map_tab_frame .map_box").css("display", "none");
+        $(".map_tab_frame .map_box").eq(order).css("display", "block");
+    });
+});    
+</script>
+</head>
+<body onload="initialize()"><!-- body 태그에 onload이벤트 등록 -->
+<div id="content">
+	<div class="content_wrap">
+		<section class="row" id="contact">
+            <h2 class="sub_title1">오시는 길</h2>
+            <div id="map_tab">
+                <ul class="map_tab_btn_box">
+                    <li class="item1 on"><button class="tab_btn">본사</button></li>
+                    <li class="item2"><button class="tab_btn">대전지사</button></li>
+                    <li class="item3"><button class="tab_btn">부산지사</button></li>
+                    <li class="item4"><button class="tab_btn">광주지사</button></li>
+                </ul>
+                <ul class="map_tab_frame">
+                    <li class="map_box item1">
+                        <h3 class="map_title">그린컴퓨터 학원 본사</h3>
+                        <article class="map_frame">
+                            <div id="map_canvas1" style="width:1011px; height:600px"></div>
+                        </article>
+                    </li>
+                    <li class="map_box item2">
+                        <h3 class="map_title">대전 그린컴퓨터아트학원</h3>
+                        <article class="map_frame">
+                            <div id="map_canvas2" style="width:1011px; height:600px"></div>
+                        </article>
+                    </li>
+                    <li class="map_box item3">
+                        <h3 class="map_title">부산 그린컴퓨터아트학원</h3>
+                        <article class="map_frame">
+                            <div id="map_canvas3" style="width:1011px; height:600px"></div>
+                        </article>
+                    </li>
+                    <li class="map_box item4">
+                        <h3 class="map_title">광주 그린컴퓨터아트학원</h3>
+                        <article class="map_frame">
+                            <div id="map_canvas4" style="width:1011px; height:600px"></div>
+                        </article>
+                    </li>
+                </ul>
+            </div>
+		</section>
+    </div>
+</body>
+</html>

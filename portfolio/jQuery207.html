@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>openweather를 이용한 실시간으로 날씨 구현하기</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <!-- CORS 에러처리(크롬 및 사파리 실시간 요청에 대한 보안처리) -->
+    <!-- jquery.xdomainajax.js를 다운로드 받아 연결하고, 요청신호 해제 -->
+    <script src="jquery.xdomainajax.js"></script>
+    <script>
+    var request = new XMLHttpRequest();
+    request.open('GET', '/', async=true);
+    request.send();
+    </script>
+    <script>
+    function parseWeather() {
+        loadJSON(function (response) {
+            var jsonData = JSON.parse(response);
+            document.getElementById("todaysWeather").innerHTML = jsonData["list"][0]["weather"][0]["main"];
+            console.log(response);
+        });
+    }
+    function loadJSON(callback) { //url의 json 데이터 불러오는 함수
+        var url = "http://api.openweathermap.org/data/2.5/forecast/daily?q=Daejeon,KR&cnt=7&appid=2a1ad423e9fad1a3ceda81fda56b1366";
+        var request = new XMLHttpRequest();
+        request.overrideMimeType("application/json");
+        request.open('GET', url, true);
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 && request.status == "200") {
+                callback(request.responseText);
+            }
+        };
+        request.send(null);
+    }
+    window.onload = function () {
+        parseWeather();
+    }
+    </script>
+    <script>//jQuery를 이용하여 현재 문서에 관련 데이터 뿌리기
+    $(document).ready(function(){
+        setTimeout(function(){
+            var wed = $("#todaysWeather").text();
+            var lt = wed.trim().toLocaleLowerCase();
+            if(lt=="clear"){
+                $("#weatherTxt").text("날씨 : 맑음");
+                $("#weatherIcon").attr("src", "./img/icon_01.gif");
+            } else if(lt=="rain"){
+                $("#weatherTxt").text("날씨 : 비");
+                $("#weatherIcon").attr("src", "./img/icon_19.gif");
+            } else if(lt=="few clouds"){
+                $("#weatherTxt").text("날씨 : 구름 조금");
+                $("#weatherIcon").attr("src", "./img/icon_03.gif");
+            } else if(lt=="snow"){
+                $("#weatherTxt").text("날씨 : 눈");
+                $("#weatherIcon").attr("src", "./img/icon_23.gif");
+            } else {
+                $("#weatherTxt").text("날씨 : 흐림");
+                $("#weatherIcon").attr("src", "./img/icon_16.gif");
+            }
+        }, 400);
+        //few clouds, broken clouds, overcast clouds, -> 날씨 용어 검색
+    });
+    </script>
+</head>
+<body>
+<div id="todaysWeather" style="display:none"></div>
+<div id="weatherTxt"></div>
+<div id="weatherPic">
+    <img src="" alt="날씨 아이콘" id="weatherIcon">
+</div>
+</body>
+</html>

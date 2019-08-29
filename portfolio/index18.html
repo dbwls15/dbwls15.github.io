@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>계산기</title>
+    <style>
+    * { margin: 0; padding: 0; }
+    @font-face {
+        font-family: "dg";
+        src: url("./img/dg.ttf");
+    }
+    input, button, label {  outline: 0; border: 0; background-image: none; }
+    table { width: 400px;height: 400px; display: table;  margin-top: 50px; margin-left: 50px; background: #575757 ; padding: 20px; border-radius: 35px;}
+    table td { display:table-cell; }
+    .tb_span { width: 100%; }
+    .tb_col { width: 25%; }
+    input {  border-radius: 12px; }
+    input[type=button] { display:block; width: 90%; margin:5%; height:70px; line-height:70px; box-shadow:3px 3px 3px #666; font-weight: bold; }
+    #display { display:block; width:96%; height:90px; line-height: 90px; margin: 2%; font-size: 48px; font-weight: 500; text-indent: 0.5em; background: #b8c7c7; font-family: "dg"; overflow: hidden; margin-bottom: 30px;}
+    input[value] { font-size: 34px; }
+    .num { background:#fff; }
+    .mat { background: #7289ab; color: #fff;}
+    .num:active { background:rgba(50,50,50,0.8); }
+    .mat:active { background:rgba(50,50,50,0.8); }
+    #reset { background: #ff9c4b; font-size: 27px;}
+    #reset:active {background:rgba(50,50,50,0.8);}
+    </style>
+</head>
+<body>
+    <table class="cal">
+        <thead>
+            <tr>
+                <td colspan="4" class="tb_span">
+                    <input type="text" id="display">
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="tb_col"><input type="button" value="1" id="one" class="nb num"></td>
+                <td class="tb_col"><input type="button" value="2" id="two" class="nb num"></td>
+                <td class="tb_col"><input type="button" value="3" id="three" class="nb num"></td>
+                <td class="tb_col"><input type="button" value="+" id="add" class="nb mat"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" id="four" class="nb num"></td>
+                <td><input type="button" value="5" id="five" class="nb num"></td>
+                <td><input type="button" value="6" id="six" class="nb num"></td>
+                <td><input type="button" value="-" id="sub" class="nb mat"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" id="seven" class="nb num"></td>
+                <td><input type="button" value="8" id="eight" class="nb num"></td>
+                <td><input type="button" value="9" id="nine" class="nb num"></td>
+                <td><input type="button" value="×" id="mul" class="nb mat"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="CE" id="reset" class="nb"></td>
+                <td><input type="button" value="0" id="zero" class="nb num"></td>
+                <td><input type="button" value="=" id="equal" class="nb mat"></td>
+                <td><input type="button" value="÷" id="div" class="nb mat"></td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+       var btn = document.getElementsByClassName("nb");
+       var dis = document.getElementById("display");
+       var data = "";
+       for(var i=0;i<btn.length;i++){
+           btn[i].addEventListener("click", function(){
+                if(this.value=="="){ 
+                    data = eval(data);            
+                    dis.value = data;
+                } else if(this.value=="CE"){
+                    data="";
+                    dis.value = "0"
+                } else {
+                    if(this.value=="÷"){
+                        data=data+"/";
+                    } else if(this.value=="×"){
+                        data=data+"*";
+                    } else {
+                        data=data+this.value;
+                    }
+                    dis.value = data;
+                }
+           });
+       }
+    </script>
+</body>
+</html>

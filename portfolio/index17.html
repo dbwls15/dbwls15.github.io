@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>아날로그시계 만들기</title>
+    <style>
+    #watch { position: relative; }
+    #watch img { position: absolute; top: 0; left: 0;}
+    </style>
+</head>
+<body>
+    <div id="watch">
+        <img src="./img/watch.png" alt="시계">
+        <img id="ht" src="./img/ht.png" alt="시침">
+        <img id="mt" src="./img/mt.png" alt="분침">
+        <img id="st" src="./img/st.png" alt="초침">
+    </div>
+    <script>
+        function watch(){
+            var time = new Date();
+            var h = time.getHours();
+            var m = time.getMinutes();
+            var s = time.getSeconds();
+            if(h > 12){h %= 12};
+            var ht = h*30;
+            var mt = m*6;
+            var st = s*6;
+            document.getElementById("ht").style.transform = "rotate("+ht+"deg)";
+            document.getElementById("mt").style.transform = "rotate("+mt+"deg)";
+            document.getElementById("st").style.transform = "rotate("+st+"deg)";
+        }
+        watch();
+        var intv = setInterval( function (){ watch()},1000);
+    </script>
+</body>
+</html>

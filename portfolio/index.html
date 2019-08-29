@@ -48,11 +48,14 @@
     #needle_base_1,#needle_base_2 {	fill: #A9FCFA;	stroke: #040e3e;}
     #needle {   fill: none;    stroke: #A9FCFA;    stroke-width: 3;}
     .streetcar_white { 	fill: #FEFEFE; 	stroke: #040e3e;}
-    .streetcar_window {   fill: #1D0444;    stroke: #040e3e;}
-    .streetcar_red {fill: #ca1a75;    stroke: #040e3e;}
+    .streetcar_window {   fill: #1D0444;  stroke: #040e3e;}
+    .streetcar_red {fill: #ca1a75;  stroke: #040e3e;}
     #Stars * {  stroke: #8BD6D2;}
-    #Stars-glow polygon {  fill: white;  filter: url('#glow');  opacity: 0;}
-    #Stars-glow polygon.star-glow-show {  opacity: 1;}
+    #Stars-glow polygon {  fill: white;  filter: url('#glow');  opacity: 0; animation-name: bling 2s linear infinite;}
+    @keyframes bling {
+        100%{opacity: 1; }
+    }
+    #Stars-glow polygon.star-glow-show {  opacity: 0;}
     .hide {  opacity: 0;}
     /* Hiding some elements from the beginning to be invisible */
     #Streetcar,#Waves-I path{opacity: 0;}
@@ -84,11 +87,6 @@
     #btn_box1 { position:absolute; bottom:20px; left:110px; width:100px; height:20px; z-index:10; }
     #btn_frame { clear:both; width:100%; height:20px; position:relative; }
     #btn_box1 li { position:absolute; top:0; width:30px; height:20px; }
-    #btn_box1 li.it1 { left:0; }
-    #btn_box1 li.it2 { left:20px; }
-    #btn_box1 li.it3 { left:40px; }
-    #btn_box1 li button { display:block; width:8px; height:13px; margin:5px auto; background:#fff; border-radius:6px; text-indent:-9999px; cursor:pointer; outline: 0; border: 0;}
-    #btn_box1 li.on button { display: block; background: #ffd66d; transform: rotate(45deg); }
     #btn_box2 li { position:absolute; z-index:20; top:150px; width:50px; height:50px; }
     #btn_box2 li.left { left:0px; }
     #btn_box2 li.right { right:0px; }
@@ -105,10 +103,9 @@
     .skill_l { float: left; clear: both; width: 50%;}
     .skill .chart {position: relative; width: 200; height: 250px;}
     .skill svg {width: 200px; height: 250px; clear: both; display: block;position: relative;}
-    .progress .track, .progress .fill {fill: rgba(0, 0, 0, 0); stroke-width: 30; stroke-linecap: round; }
-     transform: translate(290px, 800px)rotate(-120deg);
+    .progress .track, .progress .fill {fill: rgba(0, 0, 0, 0); stroke-width: 30; stroke-linecap: round; } 
     .progress .track { stroke: rgba(255,255,255,0.4); position: relative; }
-    .progress .fill { stroke: #8970a5; position: absolute; stroke-dasharray: 2200; stroke-dashoffset: 2200; animation-duration:4s; animation-fill-mode: both;}
+    .progress .fill { stroke: #8970a5; position: absolute; stroke-dasharray: 2200; stroke-dashoffset: 2200; animation-duration:5s; animation-fill-mode: both;}
     #per1 { animation-name: ch1;}
     @keyframes ch1 {
         0% { stroke-dashoffset: 2200;}
@@ -473,16 +470,7 @@ tl
             <figure id="vs">
                 <ul class="vs_list">
                     <li><img src="./img/me.jpg" alt="최유진"></li>
-                    <li><img src="./img/me.jpg" alt="최유진"></li>
-                    <li><img src="./img/me.jpg" alt="최유진"></li>
                 </ul>
-                <div id="btn_box1">
-                    <ul id="btn_frame">
-                        <li class="it1 on"><button>1</button></li>
-                        <li class="it2"><button>2</button></li>
-                        <li class="it3"><button>3</button></li>
-                    </ul>
-                </div>    
 <!--
                 <ul id="btn_box2">
                     <li class="left"><button></button></li>
@@ -524,6 +512,16 @@ tl
                     2017.03 - 2019.02 : 충북대학교 바이오시스템공학과
                     <br>
                     2019.03 - 2019.08 : 그린컴퓨터아트학원 프론트엔드 개발자과정
+                </p>
+            </div>
+            <div class="license">
+                <h3>License</h3>
+                <p>
+                    2015.02 : 운전면허 2종 보통
+                    <br>
+                    2019.06 : 웹디자인 기능사
+                    <br>
+                    2019.06 : 정보처리기사 필기
                 </p>
             </div>
         </div>
@@ -615,7 +613,7 @@ tl
                     <div class="con leftbox">
                     <div class="txtbox">
                         <h4>기본문법 이해, 로직 직접 구현</h4>
-                        <strong>계산기, 날씨, 지도 시계 등 프로젝트 수행!</strong>
+                        <strong><a href="index18.html">계산기</a>, <a href="jQuery207.html">날씨</a>, <a href="jQuery202.html">지도</a>, <a href="index17.html">시계</a>등 프로젝트 수행!</strong>
                         <p>변수, 함수, 출력제어, 조건문, 반복문, 제어문, BOM, DOM, 이벤트를 구현할 수 있습니다.</p>
                     </div>
                     </div>
@@ -673,7 +671,7 @@ tl
                 <a href="https://dbwls15.github.io/r8/">
                     <figure class="img_wrap"><img src="./img/work8.jpg" alt=""></figure>
                     <figcaption class="info">
-                        <strong>BULMA 프레임워크</strong>
+                        <strong>FLEX 방식</strong>
                         <h2>TAMU</h2>
                         <p>기획/디자인/개발 참여도 100%</p>
                     </figcaption>
@@ -692,7 +690,7 @@ tl
             </article>
 
             <article class="box">
-                <a href="https://dbwls15.github.io/r7/">
+                <a href="https://dbwls15.github.io/r3/">
                     <figure class="img_wrap"><img src="./img/work3.jpg" alt=""></figure>
                     <figcaption class="info">
                         <strong>UI/UX 반응형</strong>
@@ -714,7 +712,7 @@ tl
             </article>
 
             <article class="box">
-                <a href="https://dbwls15.github.io/r7/">
+                <a href="https://dbwls15.github.io/r2/">
                     <figure class="img_wrap"><img src="./img/work01.jpg" alt=""></figure>
                     <figcaption class="info">
                         <strong>UI/UX 반응형</strong>
@@ -725,7 +723,7 @@ tl
             </article>
 
             <article class="box">
-                <a href="https://dbwls15.github.io/r2/">
+                <a href="https://dbwls15.github.io/r7/">
                     <figure class="img_wrap"><img src="./img/work02.jpg" alt=""></figure>
                     <figcaption class="info">
                         <strong>column count 형식</strong>
