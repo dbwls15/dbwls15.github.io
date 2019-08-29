@@ -21,8 +21,8 @@
 <script>
     $(document).ready(function(){
         $(".line_lst li").click(function(){
+            $(".line_lst li").removeClass("on");
             $(this).addClass("on");
-            $(this).siblings().removeClass("on");
         });
     });
 </script>
@@ -36,8 +36,8 @@
     <section id="container">
         <div class="line">
             <ul class="line_lst">
-                <li class="on"><a href="index.html"></a></li>
-                <li><a href="sub1.html"></a></li>
+                <li><a href="index.html"></a></li>
+                <li class="on"><a href="sub1.html"></a></li>
                 <li><a href="sub2.html"></a></li>
                 <li><a href="sub3.html"></a></li>
                 <li><a href="sub4.html"></a></li>
