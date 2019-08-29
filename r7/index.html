@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>대한야구소프트볼협회(KBSA)</title>
+    <style>
+    *{margin: 0; padding: 0;}
+    body,html { width: 100%; height: 100%;}
+    
+    ul { list-style: none;}
+    a { text-decoration: none; color: inherit;}
+    .container { width: 94%; margin: 0 auto;}
+    #aside { width: 340px; height: 100%; position: fixed; top: 0; left: 0; z-index: 10; box-shadow: 2px 0 4px #999;}
+    #gnb_top { padding: 50px 0 0 45px;}
+    .logo { width: 93px; height: 45px;  float: left; margin-left: 30px;}
+    .bar { float: left; width: 1px; height: 20px; margin: 19px 15px 0 19px; background: #dfdddb; }
+    .lang { width: 58px; overflow: hidden; height: 28px; border: 1px solid #fff; border-radius: 3px; padding-top: 15px;}
+    .lang li:first-child { display: block;}
+    .lang li { display: none;}
+    .lang>li:first-child>a{height:29px;background:url(./img/lang.png) no-repeat 36px center}
+    .lang.on{width:58px;height:auto;border:1px solid #ebebeb}
+    .lang.on>li{display:block;height:30px}
+    .lang.on>li:first-child>a{height:29px;background:url(./img/lang2.png) no-repeat 36px center}
+    .gnb { clear: both; margin-top: 30px; margin-left: 45px;;}
+    .gnb li { line-height: 32px; position: relative; padding: 15px 0;}
+    .gnb li a { display: block; font-size: 20px;}
+    .dp2 { display: none; visibility: hidden; height: 0; transition: 0.5s;}
+    .gnb li.on .dp2 { display: block; visibility: visible; height: auto;}
+    .dp2 li { line-height: 28px;  padding: 5px 0;}
+    .dp2 li a { display: block; font-size: 17px; color: #454545; text-indent: 1em;}
+    .br { width: 20px; height: 3px; background: brown; margin: 30px 0 30px 75px ;}
+    .f_lst { margin-left: 45px;}
+    .f_lst li {line-height: 30px;}
+    .sns { margin: 22px 0 30px 45px; height: 40px;}
+    .sns li { float: left;  margin-right: 10px;}
+    .sns li img { width: 40px;}
+    .site { display: block; line-height: 3; cursor: pointer; width: 190px; height: 30px; border: 1px solid #ccc; margin-left: 45px;}
+    .site.on {height: auto;}
+    .site>a { display: block; line-height: 1; padding: 0.5em; position: relative;}
+    .site>a:after { background: url("./img/plus.png") no-repeat #000; right: 1em; position: absolute;}
+    .site ul {display: block; height: 0; overflow: hidden; transition: 0.6s; }
+    .site ul.on {height: auto;}
+    .site li { clear: both; line-height: 32px; text-indent: 0.5em;}
+    .site li a {display: block; width: 190px;}
+    .copy { margin: 14px 0 60px 50px; width: 220px;line-height: 24px; font-size: 12px; color: #666;}
+
+    #content { width: calc(100% - 320px); padding-left: 320px; margin-top: 20px;}
+    .lst { column-count: 3; margin: 30px 0; }
+    .lst li { margin: 0 20px 20px 0; position: relative;}
+    .lst li a {display: block; width: 100%; }
+    /* .line{ width: 320px; height: 320px; border: 6px solid peru; box-sizing: border-box; border-radius: 0 14px;} */
+    .lst li a img {clear: both; display: block; width: 100%; border-radius: 0 14px;}
+    .lst li .box { position: absolute; top: 20px; left: 20px; z-index: 1;}
+    .lst li a h2 { font-size: 15px; line-height: 28px; margin-bottom: 20px; color: #2b2b2b;}
+    .lst li a p.com1 { margin-bottom: 11px;font-size: 23px;line-height: 30px;}
+    .lst li a p.com2 { font-size: 16px; line-height: 26px;}
+    /* .line>a{ border:5px solid #ffcc00;border-radius:0 14px; box-sizing: border-box; transition:all 0.3s} */
+    .lst2 { clear: both; width: 100%;}
+    .left{float: left; width: 32%;}
+    .right { float: right; width: 65%;}
+    .lst2 img {clear: both; display: block; width: 100%; border-radius: 0 14px; margin: 0 20px 20px 0;}
+    </style>
+    <style>
+            @media screen and (max-width:767px){
+                .con_wrap {column-count: 1;}
+            }
+            @media screen and (min-width:768px) and (max-width:959px){
+                .con_wrap {column-count: 2;}
+            }
+            @media screen and (min-width:960px) and (max-width:1280px){
+                .con_wrap {column-count: 3;}
+            }
+            @media screen and (min-width:1281px){
+                .con_wrap {column-count: 3;}
+            }
+            </style>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+    $(document).ready(function(){
+        $(".gnb>li>a").click(function(){
+            $(this).siblings(".dp2").stop().not(":animated").slideDown(500);
+            $(this).removeClass("on");
+            return false;
+        });
+        $(document).mousedown(function(){
+            $(".dp2").slideUp(500);
+            $(".gnb>li>a").removeClass("on");
+        });
+    });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="aside">
+            <div id="gnb_top">
+            <div class="logo"><a href="index.html"><img src="./img/logo.png" alt=""></a></div>
+            <div class="bar"></div>
+            <ul class="lang">
+                <li><a href="">KR</a></li>
+                <li><a href="">EN</a></li>
+                <li><a href="">JP</a></li>
+                <li><a href="">CN</a></li>
+            </ul>
+        </div>
+            <ul class="gnb">
+                <li>
+                    <a href="" class="dp1">야구정보</a>
+                    <ul class="dp2">
+                        <li><a href=""></a></li>
+                        <li><a href="">선수·지도자정보</a></li>
+                        <li><a href="">야구장정보</a></li>
+                        <li><a href="">규정·규칙</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">경기일정·결과</a>
+                </li>
+                <li>
+                    <a href="" class="dp1">야구기록실</a>
+                    <ul class="dp2">
+                        <li><a href="">대회기록</a></li>
+                        <li><a href="">팀기록</a></li>
+                        <li><a href="">선수기록</a></li>
+                        <li><a href="">수상내역</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="dp1">미디어센터</a>
+                    <ul class="dp2">
+                        <li><a href="">공지사항</a></li>
+                        <li><a href="">협회소식</a></li>
+                        <li><a href="">포토갤러리</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="br"></div>
+            <!-- <ul class="log">
+                <li><a href="">로그인</a></li>
+                <li><a href="">회원가입</a></li>
+                <li class="fb"><a href=""><img src="./img/ico.gif" alt=""></a></li>
+            </ul> -->
+            <ul class="f_lst">
+                <li><a href="">개인정보처리방침</a></li>
+                <li><a href="">고객정보취급방침</a></li>
+                <li><a href="">신용정보활용체제</a></li>
+                <li><a href="">사이트맵</a></li>
+            </ul>
+            <ul class="sns">
+                <li><a href=""><img src="./img/sns1.png" alt=""></a></li>
+                <li><a href=""><img src="./img/sns2.png" alt=""></a></li>
+                <li><a href=""><img src="./img/sns3.png" alt=""></a></li>
+                <li><a href=""><img src="./img/sns4.png" alt=""></a></li>
+                <li><a href=""><img src="./img/sns5.png" alt=""></a></li>
+            </ul>
+            <div class="site">
+                <a href="">Family Site</a>
+                <ul>
+                    <li><a href="">KBO</a></li>
+                    <li><a href="">WBSC</a></li>
+                    <li><a href="">BFA</a></li>
+                    <li><a href="">서울시야구소프트볼</a></li>
+                    <li><a href="">한국대학야구연맹</a></li>
+                </ul>
+            </div>
+            <div class="copy">Copyright© KOREA BASEBALL SOFTBALL ASSOCIATION All rights reserved. Designed by 게임원</div>
+        </div>
+        <div id="content">
+            <ul class="lst">
+                <li>
+                    <a href="">
+                        <img src="./img/gg.png" alt="">
+                        <div class="box">
+                        <h2 class="tit"></h2>
+                        <p class="com1">WELCOME TO
+                                KOREA BASEBALL SOFTBALL
+                                ASSOCIATION</p>
+                        <p class="com2">대한야구소프트볼협회에 오신 것을 환영합니다.</p>
+                    </div>
+                    </a>
+                </li>
+                <li class="line">
+                    <a href="">
+                        <img src="./img/white.png" alt="">
+                        <div class="box">
+                        <h2 class="tit">경기일정·결과</h2>
+                        <p class="com1">모든 경기일정과 결과를 확인하세요.</p>
+                        <p class="com2">바로가기</p>
+                    </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./img/img5.png" alt="">
+                        <div class="box">
+                        <h2 class="tit"></h2>
+                        <p class="com1"></p>
+                        <p class="com2"></p>
+                    </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="./img/img1.png" alt="">
+                        <div class="box">
+                        <h2 class="tit"></h2>
+                        <p class="com"></p>
+                    </div>
+                    </a>
+                </li>
+                <li class="line">
+                    <a href="">
+                    <img src="./img/white.png" alt="">
+                    <div class="box">
+                        <h2 class="tit"></h2>
+                        <p class="com1">야구정보</p>
+                        <p class="com2">팀·선수정보를 비롯한 야구정보를 제공합니다.</p>
+                    </div>
+                    </a>
+                </li>
+            </ul>
+            <div class="lst2">
+                <div class="left"><img src="./img/img3.png" alt=""></div>
+                <div class="right"><img src="./img/vs1.png" alt=""></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
