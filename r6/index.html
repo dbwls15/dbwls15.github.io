@@ -54,10 +54,10 @@
     
     #vs {width: 100vw; height: 100vh; position: relative; clear: both;}
     .vs_lst { width: 200%; height: 100vh;}
-    .vs_lst li { width: 50%; float: left; height: 100vh;}
-    .vs_lst .txt_box2 {position: absolute; left: 0; top: 50%; width: 100%; margin-top: -120px; }
+    .vs_lst li { width: 50%; float: left; height: 100vh; position: relative;}
+    .vs_lst .txt_box2 {position: absolute; left: 30px; top: 50%; width: 100%; margin-top: -120px; }
     .txt1 { display: block; font-size: 52px; font-weight: 600; margin-bottom: 25px; letter-spacing:-0.25px; color:#fff;}
-    .txt2 { font-size: 22px; margin-bottom: 25px; font-weight: 300; letter-spacing:-0.65px; color:#fff;}
+    .txt2 { font-size: 22px; margin-bottom: 25px; font-weight: 400; letter-spacing:-0.65px; color:#fff;}
     .left { float: left; width: 48%; max-width: 762px; }
     .left img {width: 100%;}
     .right { float: right; width: 48%; max-width: 762px;}
@@ -80,7 +80,27 @@
 	.right p{font-size:14px; line-height:24px; padding-bottom:3%; }
 }
 @media all and (max-width:800px){
-	/* #mainTopBanner{position:relative; z-index:11;padding-top:25px; padding-bottom:15px} */
+    .hd { height: 40px; padding: 10px 0; }
+    .logo img { padding: 3px; width: 80px;}
+    .gnb li { line-height: 30px;}
+    .gnb li a { font-size: 15px; padding: 0 10px;}
+    .dp2 li { float: left; line-height: 22px;}
+    .dp2 li a {font-size: 13px; padding: 0 0 0 2px;}
+    .lang li { display: none; margin: 3px 5px; line-height: 22px; font-weight: 400;}
+    .lang li.on {width: 22px; height: 22px;}
+    .vdo { width: 100%;}
+    .vdo div {width: 60%; margin: 0;}
+    video {width: 110%; height: 80%; margin: 0 auto; }
+    /* #txt_box {width: auto; height: auto; padding-left: 20px; float: left; box-sizing: border-box; margin-left: 115px;} */
+    #txt_box {position: absolute; top: 20%; left: 100%; width: 140px;}
+    #txt_box .tit { font-size: 18px; font-weight: 600; margin-bottom: 20px; margin-top: 15px;}
+    #txt_box .com { font-size: 13px;margin-bottom: 15px;}
+    #txt_box .more { width: 70px;}
+    .vs_lst img { width: 150%; height: 100vh;}
+    .vs_lst .txt_box2 {left: 30px; width: 290px;}
+    .txt1  { font-size: 29px;}
+    .txt2 { font-size: 19px; }
+    
 	.left{float:none;}
 	.right{float:none; width:100%; padding-left:0; padding-top:3%;}
 	.right .txt1{position:absolute; top:3%; right:15px; width:43%; padding-left:2%}
@@ -92,8 +112,8 @@
 	.right a:before{right:auto; top:4px;left:0; width:70px;}
 }
 #ban2{ clear: both; padding:28px 0 0 0;}
-.ban_lst{overflow:hidden; margin:0 -2%;}
-.ban_lst li{float:left; max-width:762px; width:46%; margin:0 2%;}
+.ban_lst{overflow:hidden; margin:0 -2%; width: 200%; }
+.ban_lst li{float:left; max-width:762px; width:46%; margin:0 2%; position: relative;}
 .ban_lst li a{display:block; position:relative; height:0; padding-top:50%; background-color:#111;}
 .ban_lst li img{position:absolute; top:0px; left:0px; width:100%; height:100%; background: rgba(0, 0, 0, 1);}
 .ban_lst li .ban_in{position:absolute; top:50%; left:0px; width:100%; font-size:16px; margin-top:-55px; letter-spacing:-0.55px; color:#fff; text-align:center;}
@@ -144,6 +164,14 @@
                 return false;
             }
         });
+        //슬라이드
+        function nextAni(){
+            $(".vs_lst").not(":animated").animate({"margin-left": -wd+"px"}, 700, function(){
+                $(".vs_lst li").eq(0).appendTo($(".vs_lst"));
+                $(".vs_lst").css({"margin-left":"0px"});
+            });
+        }
+        setInterval(function(){nextAni();}, 3000);
 
     //     //크기가 맞지 않는 경우 자동 계산         
     //    $(window).resize(function(){
